@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" style="border-color: #25302e;">
+<head>
+    <meta charset="UTF-8">
+    <title>Overview</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style_overview.css">
+
+</head>
+
+<body style="background-color: #e8eefa;">
+
+<div class="container-fluid">
+<!--Image Row  -->
+  <div class="row" style="padding-top: 3%; position: relative;">
+    <div style="width: 20%; height: 20%; text-align:center; position: absolute; right: 5%; z-index: 5;">
+      <h1 style="text-align:center;">Barometric Formula</h1>
+      <a href="02_reality.html" type="button" class="btn btn-dark" style="width: 100%;">Let's Start</a>
+    </div>
+    <svg width="100%" viewBox="0 0 200 50" style="position: absolute; top: 150%;">
+      <g transform="rotate(33 70 0)">
+        <path d="M 70 0 L 150 -1 L 160 0 L 150 1 L 70 0" fill="#25302e" stroke="black" stroke-width=".2px"/>
+      </g>
+    </svg>
+    <svg width="100%" viewBox="0 0 200 50" style="position: absolute; top: 850%; right: 15%;">
+      <g transform="rotate(20 70 5)">
+        <path d="M 70 5 L 150 4 L 160 5 L 150 6 L 70 5" fill="#25302e" stroke="black" stroke-width=".2px"/>
+      </g>
+    </svg>
+    <div class="col-md-1">
+    </div>
+    <div class="col-md-2" style="position: absolute; left: 20%; top: 300%;">
+      <div class="centered"><a href="02_reality.html"><img id="img1" src="images\navbar\navbar01.jpg" alt="dummy.jpg"></a></div>
+      <div class="content" onclick="window.location='02_reality.html';">Reality</div>
+    </div>
+    <div class="col-md-2" style="position : absolute;  left: 30%; top: 480%;">
+      <div class="centered"><a href="03_idealization.html"><img id="img2" src="images\navbar\navbar02.jpg" alt="dummy.jpg"></a></div>
+      <div class="content" onclick="window.location='03_idealization.html';">Idealization</div>
+    </div>
+    <div class="col-md-2" style="position : absolute;  left: 40%; top: 660%;">
+      <div class="centered"><a href="04_descretization.html"><img id="img3" src="images\navbar\navbar03.png" alt="dummy.jpg"></a></div>
+      <div class="content" onclick="window.location='04_descretization.html';">Discretization</div>
+    </div>
+    <div class="col-md-2" style="position : absolute;  left: 50%; top: 840%;">
+      <div class="centered"><a href="05_equilibrium.html"><img id="img4" src="images\navbar\navbar04.png" alt="dummy.jpg"></a></div>
+      <div class="content" onclick="window.location='05_equilibrium.html';">Geometric Structure</div>
+    </div>
+    <div class="col-md-2" style="position : absolute;  left: 60%; top: 1020%;">
+      <div class="centered"><a href="06_solution.html"><img id="img5" src="images\navbar\navbar05.png" alt="dummy.jpg"></a></div>
+      <div class="content" onclick="window.location='06_solution.html';">Algebraic Structure</div>
+    </div>
+    <div class="col-md-1"></div>
+  </div>
+</div>
+
+</body>
+<script src="Javascript\overview.js"></script>
+
+</html>
