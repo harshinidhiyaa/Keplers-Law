@@ -1,1 +1,30 @@
+img{
+    border-radius: 30%;
+    height: 200px;
+    width: 200px;
+    box-shadow: -10px -10px 10px -1px black;
+}
+.centered{
+    text-align: center;
+}
+.col-md-2 {
+      position: relative;
+}
 
+.col-md-2 .content {
+    visibility: visible;
+    text-align: center;
+      position: absolute; /* Position the background text */
+      top: 50%; /* At the bottom. Use top:0 to append it to the top */
+      left: 5%;
+      background: rgb(0, 0, 0); /* Fallback color */
+      background: rgba(0, 0, 0, 0.75); /* Black background with 0.5 opacity */
+      color: #f1f1f1; /* Grey text */
+      width: 50%; /* Full width */
+      padding: 5px; /* Some padding */
+}
+h1 {
+    width: 100%;
+    padding-top: 70px;
+    font-size: 60px;
+}
