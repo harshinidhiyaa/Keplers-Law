@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Solution</title>
+
+    <!-- Load d3.js -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/x-mathjax-config"> MathJax.Hub.Config({ extensions: ["tex2jax.js"], jax: ["input/TeX","output/HTML-CSS"], tex2jax: { inlineMath: [["\\(","\\)"]] } }); </script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="arrowsSolution.css">
+    <link rel="stylesheet" href="arrowStyle.css">
+    <link rel="stylesheet" href="arrows.css">
+
+</head>
+<body>
+<div class="container-fluid">
+<!--    Navigation Bar  -->
+    <div class="row navbar">
+        <div class="col-md-2 logo"><a href="01_overview.html"><img id="logo" src="images\navbar\tifr-logo-black.png" alt="dummy.jpg"></a></div>
+        <div class="col-md-2"><a href="02_reality.html"><img id="img1" src="images\navbar\navbar01.jpg" alt="dummy.jpg"><div class="content" id="text1"></div></a></div>
+        <div class="col-md-2"><a href="03_idealization.html"><img id="img2" src="images\navbar\navbar02.jpg" alt="dummy.jpg"><div class="content" id="text2"></div></a></div>
+        <div class="col-md-2"><a href="04_descretization.html"><img id="img3" src="images\navbar\navbar03.png" alt="dummy.jpg"><div class="content" id="text3"></div></a></div>
+        <div class="col-md-2"><a href="05_equilibrium.html"><img id="img4" src="images\navbar\navbar04.png" alt="dummy.jpg"><div class="content" id="text4"></div></a></div>
+        <div class="col-md-2"><a href="#"><img class="selected" src="images\navbar\navbar05.png" alt="dummy.jpg"><div class="content" id="text5"></div></a></div>
+        <svg class="navSvg" width="100%" height="20px">
+            <path id="track" stroke="black" stroke-width="10" style="stroke-opacity: 70%;"></path>
+        </svg>
+    </div>
+
+<!--    Navigation Bar(close)  -->
+
+<!--    Main Body  -->
+    <div class="row">
+<!--        Derivation  -->
+        <div class="col-md-6" id="exp" style="text-align:left; font-size: 1.3em;position: relative;">
+            <div class="slidecontainer">
+                <input style="position: absolute; top: 72%; padding: 2px;z-index: 20; width: 98%;" step="0.1" type="range" min="0" max="10" value="0" class="slider" id="mySlider" autocomplete="off">
+            </div>
+<!--            Derivation  -->
+<!--solution.js will create the necessary elements  -->
+<!--            Derivation(end)-->
+        </div>
+<!--        Derivation(close)  -->
+        <div class="col-md-6 vh-100" style="background-color: #e8eefa; text-align: center;">
+            <div  id="next03" class="arrowBody" style="top: -25%;">
+                <div class="arrow right"></div>
+            </div>
+            <div id="moreSteps">
+                $$ PV = nRT $$
+                $$ V = \frac{m}{\rho} \text{ , } n = \frac{m}{M} $$
+                $$ \text{where, } \rho = \text{ density },M = \text{ Average molar mass} $$
+                $$ \therefore \rho = \frac{PM}{RT} $$
+            </div>
+            <div id="moreSteps2">
+                $$ dP = -\frac{PM}{RT}gdz $$
+                $$ \int \frac{dP}{P} = -\frac{Mg}{RT}\int dz $$
+                $$ \ln (\frac{P}{P_0}) = -\frac{Mg}{RT}z $$
+                $$ \frac{P}{P_0} = e^{-\frac{Mg}{RT}z} $$
+            </div>
+            <!-- <iframe id="graph" width="600px" height="500px" src="https://ravi312.github.io/atm-pressure/"></iframe> -->
+        </div>
+    </div>
+
+<!--    Main Body(close)  -->
+</div>
+</body>
+<script src="Javascript\solution.js"></script>
+<script src="Javascript\navbar.js"></script>
+<script>
+d3.select("#summary").on("click", ()=>{
+    window.location = "07_final.html";
+})
+</script>
+</html>
