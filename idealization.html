@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Idealization</title>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="earth.css">
+    <link rel="stylesheet" href="atmosphere.css">
+    <link rel="stylesheet" href="idealization.css">
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="arrowStyle.css">
+    <link rel="stylesheet" href="arrows.css">
+
+</head>
+<body>
+
+<div class="container-fluid">
+<!--    The Navigation Bar  -->
+    <div class="row navbar">
+        <div class="col-md-2 logo"><a href="01_overview.html"><img id="logo" src="images\navbar\tifr-logo-black.png" alt="dummy.jpg"></a></div>
+        <div class="col-md-2"><a href="02_reality.html"><img id="img1" src="images\navbar\navbar01.jpg" alt="dummy.jpg"><div class="content" id="text1"></div></a></div>
+        <div class="col-md-2"><a href="#"><img class="selected" src="images\navbar\navbar02.jpg" alt="dummy.jpg"><div class="content" id="text2"></div></a></div>
+        <div class="col-md-2"><a href="04_descretization.html"><img id="img3" src="images\navbar\navbar03.png" alt="dummy.jpg"><div class="content" id="text3"></div></a></div>
+        <div class="col-md-2"><a href="05_equilibrium.html"><img id="img4" src="images\navbar\navbar04.png" alt="dummy.jpg"><div class="content" id="text4"></div></a></div>
+        <div class="col-md-2"><a href="06_solution.html"><img id="img5" src="images\navbar\navbar05.png" alt="dummy.jpg"><div class="content" id="text5"></div></a></div>
+        <svg class="navSvg" width="100%" height="20px">
+            <path id="track" stroke="black" stroke-width="10" style="stroke-opacity: 70%;"></path>
+        </svg>
+    </div>
+<!--    The Navigation Bar(close)  -->
+<!--    Main Body  -->
+    <div class="row">
+<!--    Left Hand Column(Blood pressure vs Atmospheric pressure)  -->
+        <div class="col-md-6 vh-100" style="padding: 10px;">
+            <h1>Idealization</h1>
+            <ul style="font-size: 1.4rem;">
+                <li>Here we strip away details we consider unnecessary to solving the problem at hand.</li>
+                <li>We consider atmosphere as a column of air.</li>
+                <li>Features like rotation of earth, curvature of earth’s surface,  presence of a heat source, composition of air etc are ignored.</li>
+            </ul>
+            <div class="separate">
+                <div class="row v-h100">
+                    <div class="column">
+                        <div class="content" id="rotBt">Rotation</div>
+                    </div>
+                    <div class="column">
+                        <div class="content" id="curBt">Curvature</div>
+                    </div>
+                    <div class="column">
+                        <div class="content" id="htBt">Heat Source</div>
+                    </div>
+                    <div class="column">
+                        <div class="content" id="grBt">Gravity</div>
+                    </div>
+                    <div class="column">
+                        <div class="content" id="airBt">Air composition</div>
+                    </div>  
+            </div>
+            <center>Drag the slider to view the process of idealization</center>
+            <svg width="100%" height="50px" id="svg">
+                <defs>
+                    <path id="marker" stroke-linecap="round" d="M 0 25 H 30 L 15 50"/>
+                </defs>
+                <use xlink:href="#marker" id="marker1" fill="#5999e3"  y="0"/>
+                <use xlink:href="#marker" id="marker2" fill="#a6a5a2"  y="0"/>
+                <use xlink:href="#marker" id="marker3" fill="#a6a5a2"  y="0"/>
+                <use xlink:href="#marker" id="marker4" fill="#a6a5a2"  y="0"/>
+                <use xlink:href="#marker" id="marker5" fill="#a6a5a2"  y="0"/>
+                <use xlink:href="#marker" id="marker6" fill="#a6a5a2"  y="0"/>
+                <use xlink:href="#marker" id="marker7" fill="#a6a5a2"  y="0"/>
+            </svg>
+            <div class="slidecontainer">
+                <input style=" z-index: 20; width: 100%;" step="0.1" type="range" min="0" max="100" value="0" class="slider" id="myRange02" autocomplete="off">
+            </div>
+            </div>
+        </div>
+<!--        Left Hand Column(close)  -->
+<!--        Center Column(System)  -->
+        <div class="col-md-6" style="position: relative; text-align: center; background-color: #e8eefa;">
+            <div id="container">
+                <div id="cloud"></div>
+                <div id="earthContainer"><div id="earth"></div></div>
+                <div id="space"></div>
+                <div id="atmos1"></div>
+                <div id="atmos2"></div>
+                <div id="atmos3"></div>
+                <div id="atmos4"></div>
+                <div id="selection" style="cursor: pointer;" onclick="window.location='04_descretization.html';"></div>
+                <!-- <div class="arrowBody" style="left:110%;">
+                    <div class="arrow right"></div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+<!--    Main Body(close)  -->
+</div>
+
+</body>
+<script src="Javascript\idealizationJS\idealization.js"></script>
+<script src="Javascript\navbar.js"></script>
+</html>
