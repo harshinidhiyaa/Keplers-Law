@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Equilibrium</title>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/x-mathjax-config"> MathJax.Hub.Config({ extensions: ["tex2jax.js"], jax: ["input/TeX","output/HTML-CSS"], tex2jax: { inlineMath: [["\\(","\\)"]] } }); </script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="arrowStyle.css">
+    <link rel="stylesheet" href="arrows.css">
+
+</head>
+<body>
+
+<div class="container-fluid">
+<!--    Navigation Bar  -->
+    <div class="row navbar">
+        <div class="col-md-2 logo"><a href="01_overview.html"><img id="logo" src="images\navbar\tifr-logo-black.png" alt="dummy.jpg"></a></div>
+        <div class="col-md-2"><a href="02_reality.html"><img id="img1" src="images\navbar\navbar01.jpg" alt="dummy.jpg"><div class="content" id="text1"></div></a></div>
+        <div class="col-md-2"><a href="03_idealization.html"><img id="img2" src="images\navbar\navbar02.jpg" alt="dummy.jpg"><div class="content" id="text2"></div></a></div>
+        <div class="col-md-2"><a href="04_descretization.html"><img id="img3" src="images\navbar\navbar03.png" alt="dummy.jpg"><div class="content" id="text3"></div></a></div>
+        <div class="col-md-2"><a href="#"><img class="selected" src="images\navbar\navbar04.png" alt="dummy.jpg"><div class="content" id="text4"></div></a></div>
+        <div class="col-md-2"><a href="06_solution.html"><img id="img5" src="images\navbar\navbar05.png" alt="dummy.jpg"><div class="content" id="text5"></div></a></div>
+        <svg class="navSvg" width="100%" height="20px">
+            <path id="track" stroke="black" stroke-width="10" style="stroke-opacity: 70%;"></path>
+        </svg>
+    </div>
+<!--    Navigation Bar(close)  -->
+<!--    Main Body  -->
+<!--    Force Values  -->
+<!--    <table>-->
+<!--        <tr>-->
+<!--            <td></td>-->
+<!--            <th>Force from above</th><th>Weight</th><th>Force from below</th><th>Net Force</th>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <th>Equation</th><td>\( F_1 = P_{i+1}*A \)</td><td>\( F_2 = \rho gdz \)</td><td>-->
+<!--            \( F_3 = P_i*A \)</td><td>\( F_{Net} = F_1 + F_2 - F_3 \)</td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <th>Values</th><td id="01">-</td><td id="02">-</td><td id="03">-</td><td id="04">-</td>-->
+<!--        </tr>-->
+<!--    </table>-->
+<!--    Force Values(close)  -->
+    <div class="row">
+<!--        Force Equation  -->
+        <div id="exp" class="col-md-6" style="font-size: 1.28em; padding: 2px;">
+<!--            Explanation  -->
+            <b><h1>Let us put the system on a coordinate system !</h1></b>
+            <ul>
+                <li>We put the the discretised column of atmosphere in a 1 D coordinate system.</li>
+                <li>We focus our analysis on one arbitrary column. Let A be its cross sectional area and \(\Delta z\) the thickness.
+                    <b>(Click on any column to explore the dynamics !)</b>
+                </li>
+                <li id="force" style="visibility: hidden; padding-top: 40px;">As can be seen, 3 forces are acting on the column.
+                    <ul style="margin: 0 40px;;">
+                        <li>Force due to atmospheric pressure from above, $$ F_1 = P_{i+1} \times A $$</li>
+                        <li>Force due to weight of the column of air, $$ F_2 = \rho Agdz $$</li>
+                        <li>Force due to atmospheric pressure from below, $$ F_3 = P_{i} \times A $$</li>
+                    </ul>
+                </li>   
+            </ul>
+<!--explanation.js will create the necessary elements  -->
+<!--            Explanation(end)  -->
+<!--            Derivation  -->
+<!--explanation.js will create the necessary elements  -->
+<!--            Derivation(end)-->
+        </div>
+<!--        Force Equation(close)  -->
+<!--        Force Vectors  -->
+        <div class="col-md-6" style="position: relative; background-color: #e8eefa;;">
+            <!-- <h3 style="height: 2px; text-align: left;position: absolute;">Click on any pressure element</h3> -->
+            <svg width="120%" height="110%" viewBox="0 0 200 200" id="svg" style="background-color:#e8eefa;;">
+<!--                Axis  -->
+                <path id="axis" stroke="black" stroke-width="2" style="stroke-opacity: 70%;"/>
+                  <text style="font-size: 9px;">
+                    <textPath href="#axis" startOffset="50%" dominant-baseline="top" text-anchor="middle">
+                      <tspan y="-3.8">Height(z)</tspan>
+                    </textPath>
+                  </text>
+<!--                The pressure elements  -->
+                <rect id="pe1" fill="#ccf0ff"/><rect id="pe2" fill="#bdeafc"/><rect id="pe3" fill="#a7e4fc"/>
+                <rect id="pe4" fill="#90defc"/><rect id="pe5" fill="#7ed9fc"/><rect id="pe6" fill="#68d3fc"/>
+                <rect id="pe7" fill="#56bce3"/><rect id="pe8" fill="#4a9dbd"/><rect id="pe9" fill="#3a829e"/>
+                <rect id="ground" fill="#24753a"/>
+                <rect id="border" stroke="black" stroke-width="1" style="stroke-opacity: 70%" fill-opacity="0"/>
+<!--                Background  -->
+                <circle id="circle"/>
+<!--                ith Pressure element  -->
+                <rect id="peSelect" stroke="black" stroke-width="2" style="stroke-opacity: 50%;"/>
+<!--                Force Vectors  -->
+                <defs>
+                    <path  visibility="hidden" id="vectorsTop" stroke="red" stroke-width="1" stroke-linecap="round" d="M 105 50 V 56 M 105 56 L 107 54 M 105 56 L 103 54"/>
+                    <path  visibility="hidden" id="vectorsBottom" stroke="red" stroke-width="1" stroke-linecap="round" d="M 105 50 V 44 M 105 44 L 107 46 M 105 44 L 103 46"/>
+                    <path  visibility="hidden" id="weight" stroke="red" stroke-width="1" stroke-linecap="round" d="M 105 50 V 56 M 105 56 L 107 54 M 105 56 L 103 54"/>
+                    <circle visibility="hidden" id="atom" r="1" cx="105" cy="50" fill="black"/>
+                    <path id="text" d="M 50 50 H 150"/>
+                </defs>
+                <use xlink:href="#text" x="-38" y="-33">
+                </use>
+                <text y="-35" x="23">
+                    <textPath id="text01" visibility="hidden" href="#text" font-size=".4em">
+                      Pressure from above
+                    </textPath>
+                </text>
+                <text x="50">
+                    <textPath id="text02" visibility="hidden" href="#text" font-size=".4em">
+                      Weight
+                    </textPath>
+                </text>
+                <text y="40" x="23">
+                    <textPath id="text03" visibility="hidden" href="#text" font-size=".4em">
+                      Pressure from below
+                    </textPath>
+                </text>
+<!--                Pressure From Top  -->
+                <use xlink:href="#vectorsTop" x="-38" y="-33">
+                    <animate attributeName="y" attributeType="CSS" dur="10s" keyTimes="0;.1;.11;.2;.22;.3;.33;1" repeatCount="indefinite" type="translate" values="-33;-31;-33;-31;-33;-31;-33;-33" calcMode="linear"></animate>
+                    <animate attributeName="x" attributeType="CSS" dur="10s" keyTimes="0;0.3;0.6;1" repeatCount="indefinite" type="translate" values="-38;-38;-2.8;-2.8" calcMode="linear"/>
+                    <animate attributeName="opacity" attributeType="CSS" dur="10s" keyTimes="0;0.3;0.6;1" repeatCount="indefinite" values="1;1;0;0" calcMode="linear"/>
+                </use>
+                <use xlink:href="#vectorsTop" x="-23.8" y="-33">
+                    <animate attributeName="y" attributeType="CSS" dur="10s" keyTimes="0;.1;.11;.2;.22;.3;.33;1" repeatCount="indefinite" type="translate" values="-33;-31;-33;-31;-33;-31;-33;-33" calcMode="linear"></animate>
+                    <animate attributeName="x" attributeType="CSS" dur="10s" keyTimes="0;0.3;0.6;1" repeatCount="indefinite" type="translate" values="-23.8;-23.8;-2.8;-2.8" calcMode="linear"/>
+                    <animate attributeName="opacity" attributeType="CSS" dur="10s" keyTimes="0;0.3;0.6;1" repeatCount="indefinite" values="1;1;0;0" calcMode="linear"/>
+                </use>
+                <use xlink:href="#vectorsTop" x="-9.6" y="-33">
+                    <animate attributeName="y" attributeType="CSS" dur="10s" keyTimes="0;.1;.11;.2;.22;.3;.33;1" repeatCount="indefinite" type="translate" values="-33;-31;-33;-31;-33;-31;-33;-33" calcMode="linear"></animate>
+                    <animate attributeName="x" attributeType="CSS" dur="10s" keyTimes="0;0.3;0.6;1" repeatCount="indefinite" type="translate" values="-9.6;-9.6;-2.8;-2.8" calcMode="linear"/>
+                    <animate attributeName="opacity" attributeType="CSS" dur="10s" keyTimes="0;0.3;0.6;1" repeatCount="indefinite" values="1;1;0;0" calcMode="linear"/>
+                </use>
+                <use xlink:href="#vectorsTop" x="4.6" y="-33">
+                    <animate attributeName="y" attributeType="CSS" dur="10s" keyTimes="0;.1;.11;.2;.22;.3;.33;1" repeatCount="indefinite" type="translate" values="-33;-31;-33;-31;-33;-31;-33;-33" calcMode="linear"></animate>
+                    <animate attributeName="x" attributeType="CSS" dur="10s" keyTimes="0;0.3;0.6;1" repeatCount="indefinite" type="translate" values="4.6;4.6;-2.8;-2.8" calcMode="linear"/>
+                    <animate attributeName="opacity" attributeType="CSS" dur="10s" keyTimes="0;0.3;0.6;1" repeatCount="indefinite" values="1;1;0;0" calcMode="linear"/>
+                </use>
+                <use xlink:href="#vectorsTop" x="18.8" y="-33">
+                    <animate attributeName="y" attributeType="CSS" dur="10s" keyTimes="0;.1;.11;.2;.22;.3;.33;1" repeatCount="indefinite" type="translate" values="-33;-31;-33;-31;-33;-31;-33;-33" calcMode="linear"></animate>
+                    <animate attributeName="x" attributeType="CSS" dur="10s" keyTimes="0;0.3;0.6;1" repeatCount="indefinite" type="translate" values="18.8;18.8;-2.8;-2.8" calcMode="linear"/>
+                    <animate attributeName="opacity" attributeType="CSS" dur="10s" keyTimes="0;0.3;0.6;1" repeatCount="indefinite" values="1;1;0;0" calcMode="linear"/>
+                </use>
+                <use xlink:href="#vectorsTop" x="33" y="-33">
+                    <animate attributeName="y" attributeType="CSS" dur="10s" keyTimes="0;.1;.11;.2;.22;.3;.33;1" repeatCount="indefinite" type="translate" values="-33;-31;-33;-31;-33;-31;-33;-33" calcMode="linear"></animate>
+                    <animate attributeName="x" attributeType="CSS" dur="10s" keyTimes="0;0.3;0.6;1" repeatCount="indefinite" type="translate" values="33;33;-2.8;-2.8" calcMode="linear"/>
+                    <animate attributeName="opacity" attributeType="CSS" dur="10s" keyTimes="0;0.3;0.6;1" repeatCount="indefinite" values="1;1;0;0" calcMode="linear"/>
+                </use>
+
+                <g transform="translate(17,-18.5)">
+                    <path id="vector01" stroke="red" stroke-width="2" stroke-linecap="round" style="stroke-opacity: 100%;">
+                        <animate attributeName="opacity" attributeType="CSS" dur="10s" keyTimes="0;0.55;0.7;1" repeatCount="indefinite" values="0;0;1;1" calcMode="linear"/>
+                    </path>
+                </g>
+
+<!--                Pressure from Bottom  -->
+                <use xlink:href="#vectorsBottom" x="-38" y="33">
+                    <animate attributeName="y" attributeType="CSS" dur="10s" keyTimes="0;.1;.11;.2;.22;.3;.33;1" repeatCount="indefinite" type="translate" values="33;31;33;31;33;31;33;33" calcMode="linear"></animate>
+                    <animate attributeName="x" attributeType="CSS" dur="10s" keyTimes="0;0.3;0.6;1" repeatCount="indefinite" type="translate" values="-38;-38;-2.8;-2.8" calcMode="linear"/>
+                    <animate attributeName="opacity" attributeType="CSS" dur="10s" keyTimes="0;0.3;0.6;1" repeatCount="indefinite" values="1;1;0;0" calcMode="linear"/>
+                </use>
+                <use xlink:href="#vectorsBottom" x="-23.8" y="33">
+                    <animate attributeName="y" attributeType="CSS" dur="10s" keyTimes="0;.1;.11;.2;.22;.3;.33;1" repeatCount="indefinite" type="translate" values="33;31;33;31;33;31;33;33" calcMode="linear"></animate>
+                    <animate attributeName="x" attributeType="CSS" dur="10s" keyTimes="0;0.3;0.6;1" repeatCount="indefinite" type="translate" values="-23.8;-23.8;-2.8;-2.8" calcMode="linear"/>
+                    <animate attributeName="opacity" attributeType="CSS" dur="10s" keyTimes="0;0.3;0.6;1" repeatCount="indefinite" values="1;1;0;0" calcMode="linear"/>
+                </use>
+                <use xlink:href="#vectorsBottom" x="-9.6" y="33">
+                    <animate attributeName="y" attributeType="CSS" dur="10s" keyTimes="0;.1;.11;.2;.22;.3;.33;1" repeatCount="indefinite" type="translate" values="33;31;33;31;33;31;33;33" calcMode="linear"></animate>
+                    <animate attributeName="x" attributeType="CSS" dur="10s" keyTimes="0;0.3;0.6;1" repeatCount="indefinite" type="translate" values="-9.6;-9.6;-2.8;-2.8" calcMode="linear"/>
+                    <animate attributeName="opacity" attributeType="CSS" dur="10s" keyTimes="0;0.3;0.6;1" repeatCount="indefinite" values="1;1;0;0" calcMode="linear"/>
+                </use>
+                <use xlink:href="#vectorsBottom" x="4.6" y="33">
+                    <animate attributeName="y" attributeType="CSS" dur="10s" keyTimes="0;.1;.11;.2;.22;.3;.33;1" repeatCount="indefinite" type="translate" values="33;31;33;31;33;31;33;33" calcMode="linear"></animate>
+                    <animate attributeName="x" attributeType="CSS" dur="10s" keyTimes="0;0.3;0.6;1" repeatCount="indefinite" type="translate" values="4.6;4.6;-2.8;-2.8" calcMode="linear"/>
+                    <animate attributeName="opacity" attributeType="CSS" dur="10s" keyTimes="0;0.3;0.6;1" repeatCount="indefinite" values="1;1;0;0" calcMode="linear"/>
+                </use>
+                <use xlink:href="#vectorsBottom" x="18.8" y="33">
+                    <animate attributeName="y" attributeType="CSS" dur="10s" keyTimes="0;.1;.11;.2;.22;.3;.33;1" repeatCount="indefinite" type="translate" values="33;31;33;31;33;31;33;33" calcMode="linear"></animate>
+                    <animate attributeName="x" attributeType="CSS" dur="10s" keyTimes="0;0.3;0.6;1" repeatCount="indefinite" type="translate" values="18.8;18.8;-2.8;-2.8" calcMode="linear"/>
+                    <animate attributeName="opacity" attributeType="CSS" dur="10s" keyTimes="0;0.3;0.6;1" repeatCount="indefinite" values="1;1;0;0" calcMode="linear"/>
+                </use>
+                <use xlink:href="#vectorsBottom" x="33" y="33">
+                    <animate attributeName="y" attributeType="CSS" dur="10s" keyTimes="0;.1;.11;.2;.22;.3;.33;1" repeatCount="indefinite" type="translate" values="33;31;33;31;33;31;33;33" calcMode="linear"></animate>
+                    <animate attributeName="x" attributeType="CSS" dur="10s" keyTimes="0;0.3;0.6;1" repeatCount="indefinite" type="translate" values="33;33;-2.8;-2.8" calcMode="linear"/>
+                    <animate attributeName="opacity" attributeType="CSS" dur="10s" keyTimes="0;0.3;0.6;1" repeatCount="indefinite" values="1;1;0;0" calcMode="linear"/>
+                </use>
+                <g transform="translate(-3,0)">
+                    <path id="vector02" stroke="red" stroke-width="2" stroke-linecap="round" style="stroke-opacity: 100%;">
+                        <animate attributeName="opacity" attributeType="CSS" dur="10s" keyTimes="0;0.55;0.7;1" repeatCount="indefinite" values="0;0;1;1" calcMode="linear"/>
+                    </path>
+                </g>
+
+<!--                Weight  -->
+                <use xlink:href="#weight" x="-35" y="0">
+                    <animate attributeName="y" attributeType="CSS" dur="10s" keyTimes="0;0.1;0.11;0.2;0.21;0.3;0.6;1" repeatCount="indefinite" type="translate" values="0;2;0;2;0;2;0;0" calcMode="linear"/>
+                    <animate attributeName="x" attributeType="CSS" dur="10s" keyTimes="0;0.3;0.6;1" repeatCount="indefinite" type="translate" values="-35;-35;-2.8;-2.8" calcMode="linear"/>
+                    <animate attributeName="opacity" attributeType="CSS" dur="10s" keyTimes="0;0.3;0.6;1" repeatCount="indefinite" values="1;1;0;0" calcMode="linear"/>
+                </use>
+                <use xlink:href="#atom" x="-35" y="0"/>
+                <use xlink:href="#weight" x="-23.8" y="5">
+                    <animate attributeName="y" attributeType="CSS" dur="10s" keyTimes="0;0.1;0.11;0.2;0.21;0.3;0.6;1" repeatCount="indefinite" type="translate" values="5;7;5;7;5;7;0;0" calcMode="linear"></animate>
+                    <animate attributeName="x" attributeType="CSS" dur="10s" keyTimes="0;0.3;0.6;1" repeatCount="indefinite" type="translate" values="-23.8;-23.8;-2.8;-2.8" calcMode="linear"/>
+                    <animate attributeName="opacity" attributeType="CSS" dur="10s" keyTimes="0;0.3;0.6;1" repeatCount="indefinite" values="1;1;0;0" calcMode="linear"/>
+                </use>
+                <use xlink:href="#atom" x="-23.8" y="5"/>
+                <use xlink:href="#weight" x="-9.6" y="-15">
+                    <animate attributeName="y" attributeType="CSS" dur="10s" keyTimes="0;0.1;0.11;0.2;0.21;0.3;0.6;1" repeatCount="indefinite" type="translate" values="-15;-13;-15;-13;-15;-13;0;0" calcMode="linear"></animate>
+                    <animate attributeName="x" attributeType="CSS" dur="10s" keyTimes="0;0.3;0.6;1" repeatCount="indefinite" type="translate" values="-9.6;-9.6;-2.8;-2.8" calcMode="linear"/>
+                    <animate attributeName="opacity" attributeType="CSS" dur="10s" keyTimes="0;0.3;0.6;1" repeatCount="indefinite" values="1;1;0;0" calcMode="linear"/>
+                </use>
+                <use xlink:href="#atom" x="-9.6" y="-15"/>
+                <use xlink:href="#weight" x="4.6" y="10">
+                    <animate attributeName="y" attributeType="CSS" dur="10s" keyTimes="0;0.1;0.11;0.2;0.21;0.3;0.6;1" repeatCount="indefinite" type="translate" values="10;12;10;12;10;12;0;0" calcMode="linear"></animate>
+                    <animate attributeName="x" attributeType="CSS" dur="10s" keyTimes="0;0.3;0.6;1" repeatCount="indefinite" type="translate" values="4.6;4.6;-2.8;-2.8" calcMode="linear"/>
+                    <animate attributeName="opacity" attributeType="CSS" dur="10s" keyTimes="0;0.3;0.6;1" repeatCount="indefinite" values="1;1;0;0" calcMode="linear"/>
+                </use>
+                <use xlink:href="#atom" x="4.6" y="10"/>
+                <use xlink:href="#weight" x="18.8" y="-20">
+                    <animate attributeName="y" attributeType="CSS" dur="10s" keyTimes="0;0.1;0.11;0.2;0.21;0.3;0.6;1" repeatCount="indefinite" type="translate" values="-20;-18;-20;-18;-20;-18;0;0" calcMode="linear"></animate>
+                    <animate attributeName="x" attributeType="CSS" dur="10s" keyTimes="0;0.3;0.6;1" repeatCount="indefinite" type="translate" values="18.8;18.8;-2.8;-2.8" calcMode="linear"/>
+                    <animate attributeName="opacity" attributeType="CSS" dur="10s" keyTimes="0;0.3;0.6;1" repeatCount="indefinite" values="1;1;0;0" calcMode="linear"/>
+                </use>
+                <use xlink:href="#atom" x="18.8" y="-20"/>
+                <use xlink:href="#weight" x="25" y="15">
+                    <animate attributeName="y" attributeType="CSS" dur="10s" keyTimes="0;0.1;0.11;0.2;0.21;0.3;0.6;1" repeatCount="indefinite" type="translate" values="15;17;15;17;15;17;0;0" calcMode="linear"></animate>
+                    <animate attributeName="x" attributeType="CSS" dur="10s" keyTimes="0;0.3;0.6;1" repeatCount="indefinite" type="translate" values="25;25;-2.8;-2.8" calcMode="linear"/>
+                    <animate attributeName="opacity" attributeType="CSS" dur="10s" keyTimes="0;0.3;0.6;1" repeatCount="indefinite" values="1;1;0;0" calcMode="linear"/>
+                </use>
+                <use xlink:href="#atom" x="25" y="15"/>
+                <g transform="translate(-22.5,20)">
+                    <path id="vector03" stroke="red" stroke-width="2" stroke-linecap="round" style="stroke-opacity: 100%;">
+                        <animate attributeName="opacity" attributeType="CSS" dur="10s" keyTimes="0;0.55;0.7;1" repeatCount="indefinite" values="0;0;1;1" calcMode="linear"/>
+                    </path>
+                </g>
+
+<!--                Length element  -->
+                <line id="line2" x1="146" y1="50" x2="154" y2="50"/>
+                <line id="line" stroke="green" stroke-width="1" style="stroke-opacity: 70%;" stroke-dasharray="1"/>
+                  <text style="font-size: 5px;">
+                    <textPath id='dz' style="visibility: hidden;" href="#line2" startOffset="30%" text-anchor="middle">
+                      <tspan x="3" y="4">dz</tspan>
+                    </textPath>
+                  </text>
+                <line id="line0" stroke="black" stroke-width="1" style="stroke-opacity: 70%;" stroke-dasharray="1"/>
+                  <text style="font-size: 9px;">
+                    <textPath href="#border" startOffset="50%" dominant-baseline="top" text-anchor="middle">
+                      <tspan x="69" y="-6">z</tspan>
+                    </textPath>
+                  </text>
+            </svg>
+            <div class="arrowBody">
+                <div class="arrow right"></div>
+            </div>
+        </div>
+<!--        Force Vectors(close)  -->
+    </div>
+<!--    Main Body(close)  -->
+</div>
+
+</body>
+<script src="Javascript\equilibriumJS\forceVectors.js"></script>
+<script src="Javascript\navbar.js"></script>
+</html>
