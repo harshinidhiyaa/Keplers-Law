@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Equilibrium</title>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/x-mathjax-config"> MathJax.Hub.Config({ extensions: ["tex2jax.js"], jax: ["input/TeX","output/HTML-CSS"], tex2jax: { inlineMath: [["\\(","\\)"]] } }); </script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="arrowStyle.css">
+    <link rel="stylesheet" href="arrows.css">
+    <!-- <link rel="stylesheet" href="arrows.css"> -->
+</head>
+<body>
+
+<div class="container-fluid">
+<!--    Navigation Bar  -->
+    <div class="row navbar">
+        <div class="col-md-2 logo" style="position: relative;"><a href="01_overview.html"><img id="logo" src="images\navbar\tifr-logo-black.png" alt="dummy.jpg"></a></div>
+        <div class="col-md-2"><a href="02_reality.html"><img id="img1" src="images\navbar\navbar01.jpg" alt="dummy.jpg"><div class="content" id="text1"></div></a></div>
+        <div class="col-md-2"><a href="03_idealization.html"><img id="img2" src="images\navbar\navbar02.jpg" alt="dummy.jpg"><div class="content" id="text2"></div></a></div>
+        <div class="col-md-2"><a href="04_descretization.html"><img id="img3" src="images\navbar\navbar03.png" alt="dummy.jpg"><div class="content" id="text3"></div></a></div>
+        <div class="col-md-2"><a href="05_equilibrium.html"><img class="selected" src="images\navbar\navbar04.png" alt="dummy.jpg"><div class="content" id="text4"></div></a></div>
+        <div class="col-md-2"><a href="06_solution.html"><img id="img5" src="images\navbar\navbar05.png" alt="dummy.jpg"><div class="content" id="text5"></div></a></div>
+        <svg class="navSvg" width="100%" height="20px">
+            <path id="track" stroke="black" stroke-width="10" style="stroke-opacity: 70%;"></path>
+        </svg>
+    </div>
+<!--    Navigation Bar(close)  -->
+<!--    Main Body  -->
+<!--    Force Values  -->
+
+<!--    Force Values(close)  -->
+    <div class="row">
+<!--        Force Equation  -->
+        <div id="exp" class="col-md-6" style="font-size: 1.4rem; padding: 8px;">
+<!--            Explanation  -->
+            <h1>Since the column is in equilibrium,</h1>
+            <div class="row">
+                <div class="col-md-11">
+                    <p id="step1">$$ F_{Net} = (F_1 + F_2) - F_3 = 0 $$</p>
+                    <p id="step2" style="visibility: hidden;">Implies, $$ (P_{i+1} \times A + \rho Ag\Delta z) - P_i \times A = 0 $$</p>
+                    <p id="step3" style="visibility: hidden;">Rearranging and symplifying, $$ (P_{i+1} - P_i) = - \rho g\Delta z $$</p>
+                    <p id="step4" style="visibility: hidden;">In the limiting case, $$ dP = -\rho gdz $$</p>
+                </div>
+                <div class="slidecontainer">
+                    <input style=" padding: 20px;z-index: 20; width: 100%;" step="0.1" type="range" min="0" max="10" value="0" class="slider" id="mySlider" autocomplete="off">
+                </div>
+            </div>
+<!--explanation.js will create the necessary elements  -->
+<!--            Explanation(end)  -->
+<!--            Derivation  -->
+<!--explanation.js will create the necessary elements  -->
+<!--            Derivation(end)-->
+        </div>
+<!--        Force Equation(close)  -->
+<!--        Force Vectors  -->
+        <div class="col-md-6 vh-100" style="position: relative; background-color: #e8eefa;; text-align: center;">
+            <h3 style="height: 2px; text-align: left;">Free body diagram</h3>
+            <img id="img" src="" style="position: absolute; top: 20%; left: 10%;" height="40%">
+            <div class="arrowBody">
+                <div class="arrow right"></div>
+            </div>
+        </div>
+<!--        Force Vectors(close)  -->
+    </div>
+<!--    Main Body(close)  -->
+</div>
+
+</body>
+<script src="Javascript\equilibriumJS\explanation.js"></script>
+<script src="Javascript\navbar.js"></script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--    <table>-->
+<!--        <tr>-->
+<!--            <td></td>-->
+<!--            <th>Force from above</th><th>Weight</th><th>Force from below</th><th>Net Force</th>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <th>Equation</th><td>\( F_1 = P_{i+1}*A \)</td><td>\( F_2 = \rho gdz \)</td><td>-->
+<!--            \( F_3 = P_i*A \)</td><td>\( F_{Net} = F_1 + F_2 - F_3 \)</td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <th>Values</th><td id="01">-</td><td id="02">-</td><td id="03">-</td><td id="04">-</td>-->
+<!--        </tr>-->
+<!--    </table>-->
