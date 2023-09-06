@@ -1,0 +1,75 @@
+#img1, #img2, #img3, #img4, #img5{
+    top:-15px;
+    bottom:0;
+    border-radius: 100%;
+    height: 100px;
+    position: absolute;
+    width: 100px;
+    outline: 4px solid #555;
+    opacity: 80%;
+    z-index:2;
+}
+.navSvg{
+    z-index: 1;
+    top: 15px; 
+    position: absolute;
+}
+.nextNav{
+    overflow: visible;
+    top: 15px; 
+    position: absolute;
+}
+.selected{
+    top:-15px;
+    bottom:0;
+    border-radius: 100%;
+    height: 100px;
+    position: absolute;
+    width: 100px;
+    z-index:2;
+    outline: 6px solid #4f7eff; 
+    opacity: 100%;
+}
+#logo{
+    z-index:2; 
+    left: 0; 
+    top: 0px; 
+    position: absolute;
+    height:80px;
+    width:80px;
+    opacity: 25%;
+}
+.col-md-2.logo{
+    position: relative;
+}
+.row.navbar{
+    position:relative; 
+    border-bottom: solid; 
+    border-color: #e8eefa;
+    border-width: 20px; 
+    background-color: #e8eefa;
+  }
+.col-md-2{
+    height: 80px;
+    position: relative;
+}
+.col-md-2 .content {
+    visibility: hidden;
+    z-index:2;
+    text-align: center;
+      position: absolute; /* Position the background text */
+      top: 50px; /* At the bottom. Use top:0 to append it to the top */
+      left: 0;
+      background: rgb(0, 0, 0); /* Fallback color */
+      background: rgba(0, 0, 0, 0.75); /* Black background with 0.5 opacity */
+      color: #f1f1f1; /* Grey text */
+      width: 125px; /* Full width */
+      height: 50%;
+      padding: 8px; /* Some padding */
+}
+.content:hover{
+    background: #e74c3c;
+  }
+#navBtn:hover{
+        fill: #0e8a5a;
+}
