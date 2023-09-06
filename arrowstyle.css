@@ -1,0 +1,29 @@
+/* Arrow style */
+.arrowBody{
+    width: 60px;
+    height: 80px;
+    background-color: black;
+    position: relative;
+    float:right;
+    margin-top: 35%;
+  }
+  .arrowBody:hover {
+   background-color: #e74c3c;
+   color: white;
+  }
+  .right{
+    top: 45%;
+  }
+  .arrow {
+  position: absolute;
+  border: solid white;
+  border-width: 0 10px 10px 0;
+  display: inline-block;
+  padding: 10px;
+  right: 30%;
+  top: 30%;
+  }
+  .right {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  }
