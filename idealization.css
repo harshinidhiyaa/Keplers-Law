@@ -1,0 +1,25 @@
+.column{
+    text-align: center;
+    width: 20%;
+    padding: 10px;
+}
+.row .column .content{
+    text-align: center;
+      background: rgb(0, 0, 0); /* Fallback color */
+      background: rgba(38, 50, 216, 0.75); /* Black background with 0.5 opacity */
+      color: #f1f1f1; /* Grey text */
+      width: 100%; /* Full width */
+      height: 65px;
+      padding: 8px; /* Some padding */
+      box-shadow: 0px 0px 8px -1px black;
+}
+center{
+    font-size: large;
+    color: rgb(73, 7, 134);
+}
+#svg{
+    overflow: visible;
+}
+.separate{
+    margin: 50px;
+}
