@@ -1,4 +1,3 @@
-
 document.getElementById("img01").src = "images\\realityimg1.gif";
 document.getElementById("img02").src = "images\\realityimg2.jpeg";
 document.getElementById("img03").src = "images\\realityimg3.png";
