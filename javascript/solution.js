@@ -22,9 +22,9 @@ function setEq(){
     step4.setAttribute('id', 'step4');
 // Derivation steps
     let text1 = "Consider calculating the area of the triangle,";
-    let text2 = "From the Ideal gas equation, <div class=\"der\" id=\"step\">$$ =dA = \frac{1}{2}(r)(rd\theta) $$</div>";
-    let text3 = "Using angular momentum formula, $$ frac{dA}{dt}=frac{1}{2}frac{L}{m}$$<div class=\"der\" id=\"stepInt\">$$ P(z) = P_0e^{-\\frac{Mg}{RT}z} $$</div>";
-    let text4 ="As angular momentum is constant and mass is constant. So, $$frac{dA}{dt}=frac{1}{2}frac{L}{m}=constant$$ $$\int dA = \int \frac{1}{2}(\frac{L}{m})dt$$ $$A=\frac{1}{2}\frac{L}{m}T$$ $$A∝T$$";
+    let text2 = "<div class=\"der\" id=\"step\">$$ =dA = \\frac{1}{2}(r)(rd\\theta) $$</div>";
+    let text3 = "Using angular momentum formula, $$ frac{dA}{dt}=frac{1}{2}frac{L}{m}$$<div class=\"der\" id=\"stepInt\"></div>";
+    let text4 ="As angular momentum is constant and mass is constant. So, $$frac{dA}{dt}=frac{1}{2}frac{L}{m}=constant$$ $$\\int dA = \\int \\frac{1}{2}(\\frac{L}{m})dt$$ $$A=\\frac{1}{2}\\frac{L}{m}T$$ $$A∝T$$";
 // The Slider
 // Setting the inner html
     step1.innerHTML = text1;
