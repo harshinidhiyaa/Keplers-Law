@@ -9,3 +9,14 @@
   border-radius: 50%;
   background-size: 1100px;
 }
+#space {
+  z-index: 10;
+  top: 0;
+  bottom: 0;
+  width: 75%;
+  height: 75%;
+  background: url("images/idealization.jpeg");
+  position: absolute;
+  border-radius: 50%;
+  background-size: 1100px;
+}
