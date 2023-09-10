@@ -2,88 +2,81 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Descretization</title>
+    <title>Reality</title>
 
     <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://unpkg.com/d3-simple-slider"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script type="text/x-mathjax-config"> MathJax.Hub.Config({ extensions: ["tex2jax.js"], jax: ["input/TeX","output/HTML-CSS"], tex2jax: { inlineMath: [["\\(","\\)"]] } }); </script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="descretization.css">
     <link rel="stylesheet" href="navbar.css">
-    <link rel="stylesheet" href="arrowStyle.css">
-    <link rel="stylesheet" href="arrows.css">
-
-    <style>
-        li{
-            margin: 0 0 10px 0;}
-    </style>
+    <link rel="stylesheet" href="discrete.css">
 
 </head>
-<body>
 
+<body>
 <div class="container-fluid">
-<!--    Navigation Bar  -->
+<!-- ---------------------------------------------------------------------------------------------------------------------------------- -->
+<!--    The Navigation Bar  -->
+
     <div class="row navbar">
-        <div class="col-md-2 logo"><a href="01_overview.html"><img id="logo" src="images\navbar\tifr-logo-black.png" alt="dummy.jpg"></a></div>
-        <div class="col-md-2"><a href="02_reality.html"><img id="img1" src="images\navbar\navbar01.jpg" alt="dummy.jpg"><div class="content" id="text1"></div></a></div>
-        <div class="col-md-2"><a href="03_idealization.html"><img id="img2" src="images\navbar\navbar02.jpg" alt="dummy.jpg"><div class="content" id="text2"></div></a></div>
-        <div class="col-md-2"><a href="#"><img class="selected" src="images\navbar\navbar03.png" alt="dummy.jpg"><div class="content" id="text3"></div></a></div>
-        <div class="col-md-2"><a href="05_equilibrium.html"><img id="img4" src="images\navbar\navbar04.png" alt="dummy.jpg"><div class="content" id="text4"></div></a></div>
-        <div class="col-md-2"><a href="06_solution.html"><img id="img5" src="images\navbar\navbar05.png" alt="dummy.jpg"><div class="content" id="text5"></div></a></div>
+        <div class="col-md-2 logo"><a href="overview.html"><img id="logo" src="images\logo.png" alt="dummy.jpg"></a></div>
+        <div class="col-md-2"><a href="reality.html"><img id="img1" src="images\over1.jpeg" alt="dummy.jpg"><div class="content" id="text1"></div></a></div>
+        <div class="col-md-2"><a href="#"><img class="selected" src="images\over2.png" alt="dummy.jpg"><div class="content" id="text2"></div></a></div>
+        <div class="col-md-2"><a href="discretization.html"><img id="img3" src="images\over3.png" alt="dummy.jpg"><div class="content" id="text3"></div></a></div>
+        <div class="col-md-2"><a href="geometric.html"><img id="img4" src="images\over4.png" alt="dummy.jpg"><div class="content" id="text4"></div></a></div>
+        <div class="col-md-2"><a href="algebraic.html"><img id="img5" src="images\over5.png" alt="dummy.jpg"><div class="content" id="text5"></div></a></div>
         <svg class="navSvg" width="100%" height="20px">
             <path id="track" stroke="black" stroke-width="10" style="stroke-opacity: 70%;"></path>
         </svg>
     </div>
-<!--    Navigation Bar(close)  -->
-<!--    Main Body  -->
-    <div class="row">
-<!--    Description  -->
-        <div class="col-md-6 vh-100" style="font-size:1.5rem;">
-            <h1>Discretization</h1>
-            <p>Here we discretize atmosphere!</p>
-            <ul>
-                <li id="point01" style="visibility: hidden;">We now consider the continuous column of air to be made of smaller discrete columns, each of height, \( \Delta z \).</li>
-                <li id="point02" style="visibility: hidden;">We assume each column to have constant P, V, T values and to be in equilibrium with neighbouring columns.</li>
-                <li id="point03" style="visibility: hidden;">Columns can exchange heat and mass, but the net transfer is zero.</li>
-            </ul>
-            <div class="separate">
-                <svg width="100%" height="20px" id="svg" style="overflow: visible;position:sticky;bottom:25px; z-index: 0;">
-                    <defs>
-                        <path id="marker" stroke-linecap="round" d="M 0 0 H 30 L 15 25"/>
-                    </defs>
-                    <use xlink:href="#marker" id="marker1" fill="#5999e3" y="0"/>
-                    <use xlink:href="#marker" id="marker2" fill="#a6a5a2" y="0"/>
-                    <use xlink:href="#marker" id="marker3" fill="#a6a5a2" y="0"/>
-                    <use xlink:href="#marker" id="marker4" fill="#a6a5a2" y="0"/>
-                    <use xlink:href="#marker" id="marker5" fill="#a6a5a2" y="0"/>
-                    <use xlink:href="#marker" id="marker6" fill="#a6a5a2" y="0"/>
-                </svg>
-                <div class="slidecontainer" style="position: sticky;bottom: 1px;z-index: 15; width: 100%;">
-                  <input style="width: 100%;" type="range" min="1" max="100" value="0" class="slider" id="myRange" autocomplete="off">
+
+<!--    The Navigation Bar(close)  -->
+    <!-- Reality main -->
+
+    <div class="row" id="Main">
+        <div class="col-md-5">
+            <div id="leftMain">
+                <h1><b>Discretization</b></h1>
+                <ul>
+                    <li>
+                        As part of the modelling process, we make the following assumptions:
+                      1. The movement of the planet is only dependent on the Sun’s gravitational force.
+
+                    </li>
+                    <li>
+                        We also adhere to the following points: The orbits are elliptical.
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-7">
+            <div id="rightMain">
+                <div class="grid-container">
+                    <div class="item1">
+                        <img src="images/idealization.jpeg">
+                    </div>
+                    <div class="item2">
+                        <img src="images/discrete.gif">
+                    </div>
+                    <div class="item3">
+                        <a href="geometric.html"
+                        class="btn btn-success" type="button">To answer these questions, let us mathematically model these systems !</a>
+                    </div>
                 </div>
             </div>
         </div>
-<!--        Description(close)  -->
-<!--        Descretizing  -->
-        <div class="col-md-6" style="padding:2px;text-align: center; background-color: #e8eefa; border-left: solid; border-color: #e8eefa;; border-width: 20px;">
-            <div id="container">
-                <img src="images\Descretization\01.png" alt="dummy.jpg" id="img01">
-                <div id="select" style="cursor: pointer;" onclick="window.location='05_equilibrium.html';"></div>
-            </div><br>
-
-            <!-- <div class="arrowBody" style="top: -20%;">
-                <div class="arrow right"></div>
-            </div> -->
-        </div>
-<!--        Descretizing(close)  -->
     </div>
-<!--    Main Body(close)  -->
-</div>
 
+    <!-- Reality main(close) -->
+<!-- ----------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- ------------------------------------------------------------------------------------------------------------------------------------ -->
+</div>
 </body>
-<script src="Javascript\descretization.js"></script>
-<script src="Javascript\navbar.js"></script>
+
+<script src="javascript\navbar.js"></script>
 </html>
+<!-- "Model Wing" (https://skfb.ly/6UHWK) by AnsysLearn is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/). -->
+<!-- "Airplane N061213" (https://skfb.ly/6YG6X) by Nyilonelycompany is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/). -->
