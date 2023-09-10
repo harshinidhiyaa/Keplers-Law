@@ -1,4 +1,3 @@
-
 setEq();
 function setEq(){
 // Row and Column div
