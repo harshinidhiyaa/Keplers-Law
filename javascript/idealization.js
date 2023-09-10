@@ -167,7 +167,7 @@ function setBtn(length)
     }
 }
 
-var btnId = ["rotBt", "curBt", "htBt", "grBt", "airBt"];
+var btnId = ["rotBt", "airBt"];
 
 function resetButton(i)
 {
