@@ -93,7 +93,7 @@ function sliderReady()
             step4.style.visibility = "visible";
             d3.select(".arrowBody").style("visibility" , "visible")
             .on("click", ()=>{
-                window.location = "algebraic2.html";
+                window.location = "final.html";
             });
         }
     });
