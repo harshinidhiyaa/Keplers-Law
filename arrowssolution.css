@@ -1,0 +1,43 @@
+.border{
+    width: 60px;
+    height: 80px;
+    background-color: black;
+    position: relative;
+    position: absolute;
+    right: 0;
+}
+.der{
+  background-color: antiquewhite; 
+  padding: 2px;
+  
+}
+.der:hover{
+  cursor: pointer;
+}
+#moreSteps{
+  border: 8px solid #555;
+  position: absolute;
+  visibility: hidden;
+  left: 60%; 
+  top:25%;
+  width: 30%;
+  background-color: antiquewhite; 
+  padding: 2px;
+}
+#moreSteps2{
+  border: 8px solid #555;
+  position: absolute;
+  visibility: hidden;
+  width: 30%;
+  left: 60%; 
+  top:55%;
+  background-color: antiquewhite; 
+  padding: 2px;
+}
+.instruct{
+  font-size: .9rem;
+  color: rgb(73, 7, 134);
+}
+.content:hover{
+  background: #e74c3c;
+}
