@@ -32,16 +32,16 @@ function setEq(){
     step3.innerHTML = text3;
     step4.innerHTML = text4;
         // Change the font size for step1
-    step1.style.fontSize = '14px'; // Adjust the font size as needed
+    step1.style.fontSize = '10px'; // Adjust the font size as needed
 
     // Change the font size for step2
-    step2.style.fontSize = '14px'; // Adjust the font size as needed
+    step2.style.fontSize = '10px'; // Adjust the font size as needed
 
     // Change the font size for step3
-    step3.style.fontSize = '14px'; // Adjust the font size as needed
+    step3.style.fontSize = '10px'; // Adjust the font size as needed
 
     // Change the font size for step4
-    step4.style.fontSize = '14px'; // Adjust the font size as needed
+    step4.style.fontSize = '10px'; // Adjust the font size as needed
     step2.style.visibility = "hidden";
     step3.style.visibility = "hidden";
     step4.style.visibility = "hidden";
