@@ -5,7 +5,7 @@
   width: 75%;
   height: 75%;
   background: url("images/realityimg1.gif");
-  position: absolute;
+  position: static;
   border-radius: 50%;
   background-size: 1100px;
 }
