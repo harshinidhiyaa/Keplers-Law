@@ -15,19 +15,19 @@
     <link rel="stylesheet" href="navbar.css">
     <link rel="stylesheet" href="arrowsSolution.css">
     <link rel="stylesheet" href="arrowStyle.css">
-    <link rel="stylesheet" href="arrows.css">
+    <link rel="stylesheet" href="arrow.css">
 
 </head>
 <body>
 <div class="container-fluid">
 <!--    Navigation Bar  -->
     <div class="row navbar">
-        <div class="col-md-2 logo"><a href="01_overview.html"><img id="logo" src="images\navbar\tifr-logo-black.png" alt="dummy.jpg"></a></div>
-        <div class="col-md-2"><a href="02_reality.html"><img id="img1" src="images\navbar\navbar01.jpg" alt="dummy.jpg"><div class="content" id="text1"></div></a></div>
-        <div class="col-md-2"><a href="03_idealization.html"><img id="img2" src="images\navbar\navbar02.jpg" alt="dummy.jpg"><div class="content" id="text2"></div></a></div>
-        <div class="col-md-2"><a href="04_descretization.html"><img id="img3" src="images\navbar\navbar03.png" alt="dummy.jpg"><div class="content" id="text3"></div></a></div>
-        <div class="col-md-2"><a href="05_equilibrium.html"><img id="img4" src="images\navbar\navbar04.png" alt="dummy.jpg"><div class="content" id="text4"></div></a></div>
-        <div class="col-md-2"><a href="#"><img class="selected" src="images\navbar\navbar05.png" alt="dummy.jpg"><div class="content" id="text5"></div></a></div>
+        <div class="col-md-2 logo"><a href="overview.html"><img id="logo" src="images\logo.png" alt="dummy.jpg"></a></div>
+        <div class="col-md-2"><a href="reality.html"><img id="img1" src="images\over1.jpeg" alt="dummy.jpg"><div class="content" id="text1"></div></a></div>
+        <div class="col-md-2"><a href="#"><img class="selected" src="images\over2.png" alt="dummy.jpg"><div class="content" id="text2"></div></a></div>
+        <div class="col-md-2"><a href="discretization.html"><img id="img3" src="images\over3.png" alt="dummy.jpg"><div class="content" id="text3"></div></a></div>
+        <div class="col-md-2"><a href="geometric.html"><img id="img4" src="images\over4.png" alt="dummy.jpg"><div class="content" id="text4"></div></a></div>
+        <div class="col-md-2"><a href="algebraic.html"><img id="img5" src="images\over5.png" alt="dummy.jpg"><div class="content" id="text5"></div></a></div>
         <svg class="navSvg" width="100%" height="20px">
             <path id="track" stroke="black" stroke-width="10" style="stroke-opacity: 70%;"></path>
         </svg>
@@ -52,16 +52,12 @@
                 <div class="arrow right"></div>
             </div>
             <div id="moreSteps">
-                $$ PV = nRT $$
-                $$ V = \frac{m}{\rho} \text{ , } n = \frac{m}{M} $$
-                $$ \text{where, } \rho = \text{ density },M = \text{ Average molar mass} $$
-                $$ \therefore \rho = \frac{PM}{RT} $$
+                $$ \frac{dA}{dt} = \frac{1}{2}(r)(r\frac{d\theta}{dt}))$$
+                $$=\frac{1}{2} rv_{\theta}$$
             </div>
             <div id="moreSteps2">
-                $$ dP = -\frac{PM}{RT}gdz $$
-                $$ \int \frac{dP}{P} = -\frac{Mg}{RT}\int dz $$
-                $$ \ln (\frac{P}{P_0}) = -\frac{Mg}{RT}z $$
-                $$ \frac{P}{P_0} = e^{-\frac{Mg}{RT}z} $$
+                $$L=mrv_{\theta}$$
+
             </div>
             <!-- <iframe id="graph" width="600px" height="500px" src="https://ravi312.github.io/atm-pressure/"></iframe> -->
         </div>
@@ -74,7 +70,7 @@
 <script src="Javascript\navbar.js"></script>
 <script>
 d3.select("#summary").on("click", ()=>{
-    window.location = "07_final.html";
+    window.location = "final.html";
 })
 </script>
 </html>
