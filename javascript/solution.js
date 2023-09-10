@@ -31,6 +31,10 @@ function setEq(){
     step2.innerHTML = text2;
     step3.innerHTML = text3;
     step4.innerHTML = text4;
+    step1.style.fontSize = '18px'; 
+    step2.style.fontSize = '18px'; /
+    step3.style.fontSize = '18px'; 
+    step4.style.fontSize = '18px'; 
     step2.style.visibility = "hidden";
     step3.style.visibility = "hidden";
     step4.style.visibility = "hidden";
