@@ -47,12 +47,22 @@
             <div class="separate">
                 <div class="row v-h100">
                     <div class="column">
-                        <div class="content" id="rotBt">Rotation</div>
+                        <div class="content" id="rotBt">Multi-planet System</div>
                     </div>
                     <div class="column">
-                        <div class="content" id="curBt">Two-body System</div>
-                    </div> 
+                        <div class="content" id="curBt">.</div>
+                    </div>
+                    <div class="column">
+                        <div class="content" id="htBt">.</div>
+                    </div>
+                    <div class="column">
+                        <div class="content" id="grBt">.</div>
+                    </div>
+                    <div class="column">
+                        <div class="content" id="airBt">Two-Body System</div>
+                    </div>  
             </div>
+
             <center>Drag the slider to view the process of idealization</center>
             <svg width="100%" height="50px" id="svg">
                 <defs>
@@ -61,6 +71,10 @@
                 <use xlink:href="#marker" id="marker1" fill="#5999e3"  y="0"/>
                 <use xlink:href="#marker" id="marker2" fill="#a6a5a2"  y="0"/>
                 <use xlink:href="#marker" id="marker3" fill="#a6a5a2"  y="0"/>
+                <use xlink:href="#marker" id="marker4" fill="#a6a5a2"  y="0"/>
+                <use xlink:href="#marker" id="marker5" fill="#a6a5a2"  y="0"/>
+                <use xlink:href="#marker" id="marker6" fill="#a6a5a2"  y="0"/>
+                <use xlink:href="#marker" id="marker7" fill="#a6a5a2"  y="0"/>
             </svg>
             <div class="slidecontainer">
                 <input style=" z-index: 20; width: 100%;" step="0.1" type="range" min="0" max="100" value="0" class="slider" id="myRange02" autocomplete="off">
@@ -73,6 +87,10 @@
             <div id="container">
                 <div id="earthContainer"><div id="earth"></div></div>
                 <div id="space"></div>
+                <div id="atmos1"></div>
+                <div id="atmos2"></div>
+                <div id="atmos3"></div>
+                <div id="atmos4"></div>
                 <div id="selection" style="cursor: pointer;" onclick="window.location='discretization.html';"></div>
                 <!-- <div class="arrowBody" style="left:110%;">
                     <div class="arrow right"></div>
@@ -84,6 +102,6 @@
 </div>
 
 </body>
-<script src="Javascript\idealization.js"></script>
-<script src="Javascript\navbar.js"></script>
+<script src="javascript\idealization.js"></script>
+<script src="javascript\navbar.js"></script>
 </html>
