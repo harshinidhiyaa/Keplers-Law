@@ -23,7 +23,7 @@ function setEq(){
     let text1 = "Use the slider to derive the equation";
     let text2 = "Consider calculating the area of the triangle,<div class=\"der\" id=\"step\">$$ =dA = \\frac{1}{2}(r)(rd\\theta) $$</div>";
     let text3 = "Using angular momentum formula,<div class=\"der\" id=\"stepInt\">$$ \\frac{dA}{dt}=\\frac{1}{2}\\frac{L}{m}$$</div>";
-    let text4 ="Angular momentum and mass is constant. So, $$\\frac{dA}{dt}=\\frac{1}{2}\\frac{L}{m}=constant$$ $$\\int dA = \\int \\frac{1}{2}(\\frac{L}{m})dt$$ $$A=\\frac{1}{2}\\frac{L}{m}T$$ $$A∝T$$";
+    let text4 ="Angular momentum and mass is constant. So, $$\\frac{dA}{dt}=\\frac{1}{2}\\frac{L}{m}=constant$$ $$\\int dA = \\int \\frac{1}{2}(\\frac{L}{m})dt$$ $$A=\\frac{1}{2}\\frac{L}{m}T$$ $$A∝T$$ The region that is swept at regular intervals of time remains constant. Therefore, according to Kepler's law of equal areas, a planet's elliptical orbit around the sun causes its areal velocity to stay constant, which implies that its angular momentum likewise stays constant.";
 // The Slider
 // Setting the inner html
     step1.innerHTML = text1;
