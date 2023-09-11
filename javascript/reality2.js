@@ -2,7 +2,7 @@ document.getElementById("img01").src = "images\\real\\realityimg2.jpeg";
 document.getElementById("img02").src = "images\\real\\realityimg2.jpeg";
 document.getElementById("img03").src = "images\\real\\realityimg3.png";
 document.getElementById("img04").src = "images\\real\\realityimg4.jpeg";
-document.getElementById("text02").innerHTML = "In their orbits, objects travel more quickly when they are near the central body and more slowly when they are farther away.";
+document.getElementById("text02").innerHTML = "Objects in orbit experience higher orbital velocities closer to the central body and lower orbital velocities farther from it.";
 document.getElementById("text03").innerHTML = "Future positions and orbits of celestial object are estimated for scheduling satellite trajectories.";
 document.getElementById("text04").innerHTML = "The heliocentric model of the solar system is proved by this law.";
 
