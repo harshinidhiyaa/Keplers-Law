@@ -58,50 +58,50 @@
                     <div class="item1">
                         <img src="images/over4.png">
                     </div>
-                        <div class="item2">
-                            <svg id="pieChart" width="400" height="300"></svg>
-                        </div>
-                        <script src="https://d3js.org/d3.v7.min.js"></script>
-                        <script>
-                            // D3.js code for animated elliptical pie chart
-                            var data = [1, 1, 1]; // Three slices: black, white, blue
-                            var width = 400;
-                            var height = 300;
-                            var radiusX = width / 2;
-                            var radiusY = height / 2;
-                            
-                            var svg = d3.select("#pieChart")
-                                .attr("width", width)
-                                .attr("height", height)
-                                .append("g")
-                                .attr("transform", "translate(" + radiusX + "," + radiusY + ")");
-                            
-                            var color = d3.scaleOrdinal(["black", "white", "blue"]);
-                            var pie = d3.pie();
-                            var arc = d3.arc()
-                                .innerRadius(0)
-                                .outerRadius(Math.min(radiusX, radiusY));
-                            
-                            var pieChart = svg.selectAll("path")
-                                .data(pie(data))
-                                .enter()
-                                .append("path")
-                                .attr("d", arc)
-                                .attr("fill", function (d, i) { return color(i); })
-                                .on("click", function (event, d) {
-                                    alert("hello");
-                                });
-                            
-                            // Animation
-                            pieChart.transition()
-                                .duration(1000)
-                                .attrTween("d", function (d) {
-                                    var interpolate = d3.interpolate({ startAngle: 0, endAngle: 0 }, d);
-                                    return function (t) {
-                                        return arc(interpolate(t));
-                                    };
-                                });
-                        </script>
+                    <div class="item2">
+                        <svg id="pieChart" width="400" height="300"></svg>
+                    </div>
+                    <script src="https://d3js.org/d3.v7.min.js"></script>
+                    <script>
+                        // D3.js code for animated elliptical pie chart
+                        var data = [1, 1, 1]; // Three slices: black, white, blue
+                        var width = 400;
+                        var height = 300;
+                        var radiusX = width / 2;
+                        var radiusY = height / 2;
+
+                        var svg = d3.select("#pieChart")
+                            .attr("width", width)
+                            .attr("height", height)
+                            .append("g")
+                            .attr("transform", "translate(" + radiusX + "," + radiusY + ")");
+
+                        var color = d3.scaleOrdinal(["black", "white", "blue"]);
+                        var pie = d3.pie();
+                        var arc = d3.arc()
+                            .innerRadius(0)
+                            .outerRadius(Math.min(radiusX, radiusY));
+
+                        var pieChart = svg.selectAll("path")
+                            .data(pie(data))
+                            .enter()
+                            .append("path")
+                            .attr("d", arc)
+                            .attr("fill", function (d, i) { return color(i); })
+                            .on("click", function (event, d) {
+                                alert("hello");
+                            });
+
+                        // Animation
+                        pieChart.transition()
+                            .duration(1000)
+                            .attrTween("d", function (d) {
+                                var interpolate = d3.interpolate({ startAngle: 0, endAngle: 0 }, d);
+                                return function (t) {
+                                    return arc(interpolate(t));
+                                };
+                            });
+                    </script>
                         <div class="item3">
                         <a href="algebraic.html"
                         class="btn btn-success" type="button">Let's continue solving this with algebraic assignment of values</a>
