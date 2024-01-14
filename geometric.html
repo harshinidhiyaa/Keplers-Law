@@ -12,110 +12,81 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="navbar.css">
     <link rel="stylesheet" href="discrete.css">
-
 </head>
 
 <body>
-<div class="container-fluid">
-<!-- ---------------------------------------------------------------------------------------------------------------------------------- -->
-<!--    The Navigation Bar  -->
-
-    <div class="row navbar">
-        <div class="col-md-2 logo"><a href="overview.html"><img id="logo" src="images\logo.png" alt="dummy.jpg"></a></div>
-        <div class="col-md-2"><a href="reality.html"><img id="img1" src="images\over1.jpeg" alt="dummy.jpg"><div class="content" id="text1"></div></a></div>
-        <div class="col-md-2"><a href="#"><img class="selected" src="images\over2.png" alt="dummy.jpg"><div class="content" id="text2"></div></a></div>
-        <div class="col-md-2"><a href="discretization.html"><img id="img3" src="images\over3.png" alt="dummy.jpg"><div class="content" id="text3"></div></a></div>
-        <div class="col-md-2"><a href="geometric.html"><img id="img4" src="images\over4.png" alt="dummy.jpg"><div class="content" id="text4"></div></a></div>
-        <div class="col-md-2"><a href="algebraic.html"><img id="img5" src="images\over5.png" alt="dummy.jpg"><div class="content" id="text5"></div></a></div>
-        <svg class="navSvg" width="100%" height="20px">
-            <path id="track" stroke="black" stroke-width="10" style="stroke-opacity: 70%;"></path>
-        </svg>
-    </div>
-
-<!--    The Navigation Bar(close)  -->
-    <!-- Reality main -->
-
-    <div class="row" id="Main">
-        <div class="col-md-5">
-            <div id="leftMain">
-                <h1><b>Geometrical Representation</b></h1>
-                <ul>
-                    <li>
-                        The planet traverses the distance between A and B, C and D, and E and F in equal times.
-                        <br>
-                        Consider one section of the ellipse. In this case, FME
-
-                    </li>
-                    <li>
-                       Here, the planet has travelled angle dθ, the distance of the arc length will be rdθ with the distance between Sun and the planet, Mars as r. 
-                    </li>
-                </ul>
-            </div>
+    <div class="container-fluid">
+        <!-- The Navigation Bar -->
+        <div class="row navbar">
+            <!-- ... (Your existing navigation bar code) ... -->
         </div>
-        <div class="col-md-7">
-            <div id="rightMain">
-                <div class="grid-container">
-                    <div class="item1">
-                        <img src="images/over4.png">
-                    </div>
-                    <div class="item2">
-                        <img src="images/geomtric.gif">
-                    </div>
-                    <div class="item2">
-                        <svg id="pieChart" width="100%" height="100%"></svg>
-                    </div>
-                    <script src="https://d3js.org/d3.v7.min.js"></script>
-                    <script>
-                        // D3.js code for animated pie chart
-                        var data = [30, 30, 30, 30, 30]; // Adjust the values as needed
-                        var width = window.innerWidth * 0.25;
-                        var height = window.innerHeight * 0.25;
-                        var radius = Math.min(width, height) / 2;
-                        
-                        var svg = d3.select("#pieChart")
-                            .attr("width", width)
-                            .attr("height", height)
-                            .append("g")
-                            .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
-                        var color = d3.scaleOrdinal(d3.schemeCategory10);
-                        var pie = d3.pie();
-                        var arc = d3.arc()
-                            .innerRadius(0)
-                            .outerRadius(radius);
-                        var pieChart = svg.selectAll("path")
-                            .data(pie(data))
-                            .enter()
-                            .append("path")
-                            .attr("d", arc)
-                            .attr("fill", function (d, i) { return color(i); });
-                        // Animation
-                        pieChart.transition()
-                            .duration(1000)
-                            .attrTween("d", function (d) {
-                                var interpolate = d3.interpolate({ startAngle: 0, endAngle: 0 }, d);
-                                return function (t) {
-                                    return arc(interpolate(t));
-            };
-        });
-</script>
 
-                    <div class="item3">
-                        <a href="algebraic.html"
-                        class="btn btn-success" type="button">Let's continue solving this with algebraic assignment of values</a>
+        <!-- Reality main -->
+        <div class="row" id="Main">
+            <div class="col-md-5">
+                <div id="leftMain">
+                    <h1><b>Geometrical Representation</b></h1>
+                    <ul>
+                        <li>
+                            The planet traverses the distance between A and B, C and D, and E and F in equal times.
+                            <br>
+                            Consider one section of the ellipse. In this case, FME
+                        </li>
+                        <li>
+                            Here, the planet has traveled angle dθ, the distance of the arc length will be rdθ with the distance between Sun and the planet, Mars as r.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <div id="rightMain">
+                    <div class="grid-container">
+                        <div class="item2">
+                            <svg id="pieChart" width="100%" height="100%"></svg>
+                            <script>
+                                // D3.js code for animated pie chart
+                                var data = [30, 30, 30, 30, 30]; // Adjust the values as needed
+                                var width = window.innerWidth * 0.25;
+                                var height = window.innerHeight * 0.25;
+                                var radius = Math.min(width, height) / 2;
+                                
+                                var svg = d3.select("#pieChart")
+                                    .attr("width", width)
+                                    .attr("height", height)
+                                    .append("g")
+                                    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+                                var color = d3.scaleOrdinal(d3.schemeCategory10);
+                                var pie = d3.pie();
+                                var arc = d3.arc()
+                                    .innerRadius(0)
+                                    .outerRadius(radius);
+                                var pieChart = svg.selectAll("path")
+                                    .data(pie(data))
+                                    .enter()
+                                    .append("path")
+                                    .attr("d", arc)
+                                    .attr("fill", function (d, i) { return color(i); });
+                                // Animation
+                                pieChart.transition()
+                                    .duration(1000)
+                                    .attrTween("d", function (d) {
+                                        var interpolate = d3.interpolate({ startAngle: 0, endAngle: 0 }, d);
+                                        return function (t) {
+                                            return arc(interpolate(t));
+                                        };
+                                    });
+                            </script>
+                        </div>
+                        <div class="item3">
+                            <a href="algebraic.html" class="btn btn-success" type="button">Let's continue solving this with algebraic assignment of values</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+        <!-- Reality main(close) -->
     </div>
-
-    <!-- Reality main(close) -->
-<!-- ----------------------------------------------------------------------------------------------------------------------------------- -->
-
-<!-- ------------------------------------------------------------------------------------------------------------------------------------ -->
-</div>
 </body>
 
 <script src="javascript\navbar.js"></script>
 </html>
-<!-- "Model Wing" (https://skfb.ly/6UHWK) by AnsysLearn is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/). -->
-<!-- "Airplane N061213" (https://skfb.ly/6YG6X) by Nyilonelycompany is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/). -->
