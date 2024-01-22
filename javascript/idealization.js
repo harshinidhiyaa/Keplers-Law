@@ -29,15 +29,6 @@ d3.select('#myRange02').on("input",function(){
     setAxisSelection(length);
     setZoomCurve(length);
 })
-// Add this function to your existing JavaScript code
-function fadeInSpace() {
-  var spaceElement = document.getElementById('space');
-  spaceElement.style.opacity = '1';
-}
-
-// Call the fadeInSpace function when needed (e.g., after some delay or based on user interaction)
-setTimeout(fadeInSpace, 1000); // Example: fadeInSpace after 1000 milliseconds (1 second)
-
 function setAxisSelection(length)
 {
     if(length < 5.7/6)
@@ -57,23 +48,10 @@ function setAnim(length)
     }
 }
 
-function setImage(length) {
-    var earthElement = document.getElementById("earth");
-    var spaceElement = document.getElementById("space");
-
-    if (length < 1 / 6) {
-        // If length is below 1/6, set the background to earth (realityimg1.gif)
-        earthElement.style.background = "url('images/realityimg1.gif')";
-        spaceElement.style.background = "url('images/idealization2.jpeg')";
-    } else if (length > 1 / 6 && length < 2 / 6) {
-        // If length is between 1/6 and 2/6, create a fade transition
-        earthElement.style.opacity = 1 - ((length - 1 / 6) / (2 / 6 - 1 / 6));
-        spaceElement.style.opacity = (length - 1 / 6) / (2 / 6 - 1 / 6);
-    } else {
-        // If length is greater than or equal to 2/6, set the background to space (idealization2.jpeg)
-        earthElement.style.background = "url('images/idealization2.jpeg')";
-        spaceElement.style.background = "url('images/realityimg1.gif')";
-    }
+function setImage(length)
+{
+    document.getElementById("earth").style.opacity = opacity(length,2.7/6,3/6).toString() + "%";
+    document.getElementById("space").style.opacity = opacity(length,2.8/6,3/6).toString() + "%";
 }
 
 
