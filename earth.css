@@ -26,4 +26,15 @@
     background-position: 1100px 0px;
   }
 }
+#earthContainer {
+  z-index: 15;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  border-radius: 50%;
+  background-size: 1100px;
+  overflow: hidden;
+}
 
