@@ -18,10 +18,12 @@
   background: url("images/idealization2.jpeg");
   border-radius: 50%;
   background-size: 500px;
+  opacity: 0; /* Set initial opacity to 0 */
   transition: opacity 0.5s ease; /* Adjust the duration and timing function as needed */
   position: absolute;
   z-index: 9;
 }
+
 
 #container {
   width: 450px;
