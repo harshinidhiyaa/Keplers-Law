@@ -48,11 +48,26 @@ function setAnim(length)
         document.getElementById("earth").style.webkitAnimationTimingFunction = "cubic-bezier(0,0,1,1)";
     }
 }
-function setImage(length)
-{
-    document.getElementById("earth").style.opacity = opacity(length,2.7/6,3/6).toString() + "%";
-    document.getElementById("space").style.opacity = opacity(length,2.8/6,3/6).toString() + "%";
+
+function setImage(length) {
+    var earthElement = document.getElementById("earth");
+    var spaceElement = document.getElementById("space");
+
+    if (length < 1 / 6) {
+        // If length is below 1/6, set the background to earth (realityimg1.gif)
+        earthElement.style.background = "url('images/realityimg1.gif')";
+        spaceElement.style.background = "url('images/idealization2.jpeg')";
+    } else if (length > 1 / 6 && length < 2 / 6) {
+        // If length is between 1/6 and 2/6, create a fade transition
+        earthElement.style.opacity = 1 - ((length - 1 / 6) / (2 / 6 - 1 / 6));
+        spaceElement.style.opacity = (length - 1 / 6) / (2 / 6 - 1 / 6);
+    } else {
+        // If length is greater than or equal to 2/6, set the background to space (idealization2.jpeg)
+        earthElement.style.background = "url('images/idealization2.jpeg')";
+        spaceElement.style.background = "url('images/realityimg1.gif')";
+    }
 }
+
 
 function opacity(length,min,max)
 {
