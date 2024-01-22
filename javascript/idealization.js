@@ -29,6 +29,14 @@ d3.select('#myRange02').on("input",function(){
     setAxisSelection(length);
     setZoomCurve(length);
 })
+// Add this function to your existing JavaScript code
+function fadeInSpace() {
+  var spaceElement = document.getElementById('space');
+  spaceElement.style.opacity = '1';
+}
+
+// Call the fadeInSpace function when needed (e.g., after some delay or based on user interaction)
+setTimeout(fadeInSpace, 1000); // Example: fadeInSpace after 1000 milliseconds (1 second)
 
 function setAxisSelection(length)
 {
