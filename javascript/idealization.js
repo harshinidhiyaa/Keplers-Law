@@ -49,11 +49,26 @@ function setAnim(length)
     }
 }
 
-function setImage(length)
-{
-    document.getElementById("earth").style.opacity = opacity(length,2.7/6,3/6).toString() + "%";
-    document.getElementById("space").style.opacity = opacity(length,2.8/6,3/6).toString() + "%";
+function setImage(length) {
+    let earthOpacity = opacity(length, 2.7 / 6, 3 / 6);
+    let spaceOpacity = opacity(length, 2.8 / 6, 3 / 6);
+
+    document.getElementById("earth").style.opacity = earthOpacity + "%";
+    document.getElementById("space").style.opacity = spaceOpacity + "%";
+
+    // Ensure that only one of the elements is visible at a time
+    if (earthOpacity === 0) {
+        document.getElementById("earth").style.display = "none";
+        document.getElementById("space").style.display = "block";
+    } else if (spaceOpacity === 0) {
+        document.getElementById("earth").style.display = "block";
+        document.getElementById("space").style.display = "none";
+    } else {
+        document.getElementById("earth").style.display = "block";
+        document.getElementById("space").style.display = "block";
+    }
 }
+
 function opacity(length,min,max)
 {
     if(length < min)
