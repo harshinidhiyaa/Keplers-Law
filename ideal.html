@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reality</title>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="realityfont.css">
+    <link rel="stylesheet" href="anreality.css">
+    <link rel="stylesheet" href="arrowstyle.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+</head>
+<body>
+<div class="container-fluid">
+<!--    The Navigation Bar  -->
+    <div class="row navbar">
+        <div class="col-md-2 logo"><a href="overview.html"><img id="logo" src="images\logo.png" alt="dummy.jpg"></a></div>
+        <div class="col-md-2"><a href="#"><img class="selected" src="images\over1.jpeg" alt="dummy.jpg"><div class="content" id="text1"></div></a></div>
+        <div class="col-md-2"><a href="idealization.html"><img id="img2" src="images\over2.png" alt="dummy.jpg"><div class="content" id="text2"></div></a></div>
+        <div class="col-md-2"><a href="discretization.html"><img id="img3" src="images\over3.png" alt="dummy.jpg"><div class="content" id="text3"></div></a></div>
+        <div class="col-md-2"><a href="geometric.html"><img id="img4" src="images\over4.png" alt="dummy.jpg"><div class="content" id="text4"></div></a></div>
+        <div class="col-md-2"><a href="algebraic.html"><img id="img5" src="images\over5.png" alt="dummy.jpg"><div class="content" id="text5"></div></a></div>
+        <svg class="navSvg" width="100%" height="20px">
+            <path id="track" stroke="black" stroke-width="10" style="stroke-opacity: 70%;"></path>
+        </svg>
+    </div>
+
+<!--    The Navigation Bar(close)  -->
+    <div class="row intro">
+        <div class="col-md-12">
+            <h1>Idealization</h1><span>Here we strip away details we consider unnecessary to solving the problem at hand and focus on relevant abstraction. Consider a two body system, Mars and Sun excluding the gravitational influence of the planet’s moons and external influence of other space objects. A radius vector joining any planet to the Sun sweeps out equal areas in equal lengths of time. In this case, Mars takes 1 month for sweeping one section of the orbit when at aphelion and 1 month for sweeping another orbital arc section at perihelion. But, the areas should be equal. Let's verify this further.
+                </span>
+        </div>
+    </div>
+
+    <div class="row main" id="img_row">
+        <div class="col-md-3 vh-100">
+            <img id="img01">
+            <div id="next01" class="arrowBody">
+                <div class="arrow right"></div>
+            </div>
+        </div>
+        <div class="col-md-3 vh-100">
+            <img id="img02">
+            <div class="content" id="text02"></div>
+            <div id="next02" class="arrowBody">
+                <div class="arrow right"></div>
+            </div>
+        </div>
+        <div class="col-md-3 vh-100">
+            <img id="img03">
+            <div class="content" id="text03"></div>
+            <div  id="next03" class="arrowBody">
+                <div class="arrow right"></div>
+            </div>
+        </div>
+        <div class="col-md-3 vh-100">
+            <img id="img04">
+            <div class="content" id="text04"></div>
+            <div id="next04" class="arrowBody">
+                <div class="arrow right"></div>
+            </div>
+        </div>
+    </div>
+    <div class="row" id="idealize">
+        <div class="text">
+            <b><span>To mathematically model and estimate the interaction of bodies in space let us first idealise the system !</span></b><br>
+                 <a href="idealization.html"
+                 class="btn btn-success" type="button">Lets Idealize the system</a>
+        </div>
+    </div>
+</div>
+</body>
+<script src="javascript\navbar.js"></script>
+<script src="javascript\reality2.js"></script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <h1 id="hey"></h1>
+<div class="d-grid" style="left:400px; width: 50%; position: absolute; bottom: 10px;">
+  
+</div> -->
+
+<!-- <div class="row" style="background-color: #b3fff9;">
+    <div class="col-md-2"></div>
+    <div class="col-md-4 vh-100">
+        <img id="img01" src="images\reality\mountainClimbing.jpg">
+    </div>
+    <div class="col-md-6 vh-100">
+        <div class="content" id="text01" style="position: relative;">
+            <h1>Mountain Climber</h1>
+            <p>A Mountain climber would like to know how the atmospheric pressure changes
+            with height since it will have physiological effect on her.</p>
+            <button style="position: absolute; top: 75%; bottom: 10%;" id="click01" type="button" class="btn btn-primary" onclick="window.location='02_reality2.html';">Click Me</button>
+        </div>
+    </div>
+
+</div> -->
+
+<!--        <div class="col-md-4 vh-100">-->
+<!--            <img id="img02" src="images\reality\boiling.jpg">-->
+<!--            <div class="content" id="text02"></div>-->
+<!--            <button id="click02" type="button" class="btn btn-primary" onclick="window.location='02_reality2.html';">Click Me</button>-->
+<!--        </div>-->
+<!--        <div class="col-md-4 vh-100">-->
+<!--            <img id="img03" src="images\reality\hotbaloon.jpg">-->
+<!--            <div class="content" id="text03"></div>-->
+<!--            <button id="click03" type="button" class="btn btn-primary" onclick="window.location='02_reality2.html';">Click Me</button>-->
+<!--        </div>-->
+
+<!--    <div class="d-grid" style="left:400px; width: 50%; position: absolute; top: 660px;">-->
+<!--      <a href="03_idealization.html" class="btn btn-dark" type="button">Lets Idealize the System</a>-->
+<!--    </div>-->
