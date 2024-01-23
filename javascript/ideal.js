@@ -2,9 +2,9 @@ document.getElementById("img01").src = "images\\realityimg1.gif";
 document.getElementById("img02").src = "images\\real\\realityimg0.gif";
 document.getElementById("img03").src = "images\\real\\realityimg3.png";
 document.getElementById("img04").src = "images\\idealization2.jpeg";
-document.getElementById("text02").innerHTML = "Objects in space move faster when they are closer to a central body and slower when they are farther away.";
-document.getElementById("text03").innerHTML = "Future positions and orbits of celestial object are estimated for scheduling satellite trajectories.";
-document.getElementById("text04").innerHTML = "The heliocentric model of the solar system is proved by this law.";
+document.getElementById("text02").innerHTML = "Consider a two body system, Mars and Sun excluding the gravitational influence of the planet’s moons and external influence of other space objects.";
+document.getElementById("text03").innerHTML = "A radius vector joining any planet to the Sun sweeps out equal areas in equal lengths of time.";
+document.getElementById("text04").innerHTML = "In this case, Mars takes 1 month for sweeping one section of the orbit when at aphelion and 1 month for sweeping another orbital arc section at perihelion.";
 
 for(let i = 1; i < 5; i++)
 {
