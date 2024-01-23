@@ -1,5 +1,5 @@
 document.getElementById("img01").src = "images\\real\\realityimg2.jpeg";
-document.getElementById("img02").src = "images\\real\\realityimg0.gif";
+document.getElementById("img02").src = "images\\real\\replace.jpeg";
 document.getElementById("img03").src = "images\\real\\realityimg3.png";
 document.getElementById("img04").src = "images\\real\\realityimg4.jpeg";
 document.getElementById("text02").innerHTML = "Objects in space move faster when they are closer to a central body and slower when they are farther away.";
