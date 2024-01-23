@@ -1,6 +1,6 @@
 document.getElementById("img01").src = "images\\realityimg1.gif";
 document.getElementById("img02").src = "images\\real\\realityimg0.gif";
-document.getElementById("img03").src = "images\\real\\realityimg3.png";
+document.getElementById("img03").src = "images\\dumb.webp";
 document.getElementById("img04").src = "images\\idealization2.jpeg";
 document.getElementById("text02").innerHTML = "Consider a two body system, Mars and Sun excluding the gravitational influence of the planet’s moons and external influence of other space objects.";
 document.getElementById("text03").innerHTML = "A radius vector joining any planet to the Sun sweeps out equal areas in equal lengths of time.";
