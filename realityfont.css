@@ -23,6 +23,10 @@ border: 8px solid #555;
   left: 20px;
   top: 10px;
 }
+#text02, #text03, #text04 {
+    font-size: 12px; /* Set the desired font size */
+}
+
 #img02, #img03, #img04, #text02, #text03, #text04, #next02, #next03, #next04{
     visibility: hidden;
 }
