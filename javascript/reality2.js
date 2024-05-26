@@ -1,6 +1,6 @@
 document.getElementById("img01").src = "images\\real\\realityimg1.gif";
 document.getElementById("img02").src = "images\\real\\realityimg4.jpeg";
-document.getElementById("text02").innerHTML = "The heliocentric model of the solar system is proved by this law.";
+document.getElementById("text02").innerHTML = "The heliocentric model of the solar system.";
 
 for(let i = 1; i < 3; i++)
 {
