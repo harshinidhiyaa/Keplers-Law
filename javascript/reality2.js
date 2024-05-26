@@ -1,8 +1,8 @@
-//document.getElementById("img01").src = "images\\real\\realityimg1.gif";
 document.getElementById("img01").src = "images\\real\\realityimg1.gif";
+document.getElementById("img02").src = "images\\real\\realityimg4.jpeg";
 document.getElementById("text01").innerHTML = "The heliocentric model of the solar system is proved by this law.";
 
-for(let i = 1; i < 2; i++)
+for(let i = 1; i < 3; i++)
 {
     d3.select("#next0" + i.toString()).on("click", function()
     {
@@ -13,7 +13,7 @@ for(let i = 1; i < 2; i++)
 function turnVisible(i)
 {
     i++;
-    if(i < 2)
+    if(i < 3)
     {
         let img = document.getElementById("img0" + i.toString());
         let text = document.getElementById("text0" + i.toString());
