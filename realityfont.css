@@ -16,12 +16,12 @@ position: relative;
 }
 #img01, #img02, #img03, #img04{
    border: 8px solid #555;
-   height: 30%;  /* Reduced height for a more horizontal shape */
-   width: 90%;   /* Increased width for a more horizontal shape */
-   border-radius: 50% / 25%;  /* Creates a horizontal oval shape */
+   height: 40%;  /* Increased height for a bigger oval */
+   width: 95%;   /* Increased width for a bigger oval */
+   border-radius: 50% / 25%; /* Oval shape */
    position: absolute;
-   left: 20px;
-   top: 10px;
+   left: 5px;   /* Adjusted for better centering */
+   top: 10px;   /* Adjusted for better centering */
 }
 
 #img02, #img03, #img04, #text02, #text03, #text04, #next02, #next03, #next04{
