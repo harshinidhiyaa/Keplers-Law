@@ -15,14 +15,15 @@ position: relative;
    overflow:visible;
 }
 #img01, #img02, #img03, #img04{
-border: 8px solid #555;
- height: 45%;
-  width:85%;
-  border-radius: 80%;
-  position:absolute;
-  left: 20px;
-  top: 10px;
+   border: 8px solid #555;
+   height: 30%;  /* Reduced height for a more horizontal shape */
+   width: 90%;   /* Increased width for a more horizontal shape */
+   border-radius: 50% / 25%;  /* Creates a horizontal oval shape */
+   position: absolute;
+   left: 20px;
+   top: 10px;
 }
+
 #img02, #img03, #img04, #text02, #text03, #text04, #next02, #next03, #next04{
     visibility: hidden;
 }
