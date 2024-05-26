@@ -14,7 +14,7 @@ position: relative;
   text-align: center;
    overflow:visible;
 }
-#img01, #img02, #img03, #img04{
+#img01{
    border: 8px solid #555;
    height: 30%;  /* Adjusted height for an oval shape */
    width: 90%;   /* Adjusted width for an oval shape */
@@ -23,7 +23,15 @@ position: relative;
    left: 5%;  /* Adjusted for better centering */
    top: 10%;   /* Adjusted for better centering */
 }
-
+#img02{
+   border: 8px solid #555;
+   height: 45%;
+   width:85%;
+   border-radius: 50%;
+   position:absolute;
+   left: 20px;
+   top: 10px;
+}
 
 #img02, #img03, #img04, #text02, #text03, #text04, #next02, #next03, #next04{
     visibility: hidden;
