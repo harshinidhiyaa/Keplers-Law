@@ -1,47 +1,74 @@
-document.getElementById("img01").src = "images/real/realityimg2.jpeg";
-document.getElementById("text01").innerHTML = "The heliocentric model of the solar system is proved by this law.";
+document.getElementById("img01").src = "images\\real\\realityimg1.gif";
+document.getElementById("img02").src = "images\\real\\replace.jpeg";
+document.getElementById("text02").innerHTML = "The heliocentric model of the solar system is proved by this law.";
 
-d3.select("#next01").on("click", function() {
-    turnVisible();
-});
-
-function turnVisible() {
-    let img = document.getElementById("img01");
-    let text = document.getElementById("text01");
-    let next = document.getElementById("next01");
-    
-    next.style.visibility = "hidden";
-    img.style.visibility = "visible";
-    text.style.visibility = "visible";
-    animateStuff();
+for(let i = 1; i < 3; i++)
+{
+    d3.select("#next0" + i.toString()).on("click", function()
+    {
+        turnVisible(i);
+    });
 }
 
-function animateStuff() {
+function turnVisible(i)
+{
+    i++;
+    if(i < 3)
+    {
+        let img = document.getElementById("img0" + i.toString());
+        let text = document.getElementById("text0" + i.toString());
+        let next = document.getElementById("next0" + i.toString());
+        next.style.visibility = "visible";
+        next = document.getElementById("next0" + (i-1).toString());
+        next.style.visibility = "hidden";
+        img.style.visibility = "visible";
+        text.style.visibility = "visible";
+    }
+    else
+    {
+        let idealize = document.getElementById("idealize");
+        idealize.style.visibility = "visible";
+        let next = document.getElementById("next0" + (i-1).toString());
+        next.style.visibility = "hidden";
+        animateStuff();
+    }
+}
+
+function animateStuff(){
     moveImage();
     disapperImage();
     disapperText();
+    appearText();
 }
 
-function moveImage() {
+function moveImage(){
     let img = document.getElementById("img01");
 
     img.style.animationName = "enlargeImage";
+
     img.style.animationFillMode = "forwards";
     img.style.animationDuration = "4s";
 }
 
-function disapperImage() {
-    let img = document.getElementById("img01");
+function disapperImage(){
+    let img02 = document.getElementById("img02");
 
-    img.style.animationName = "collapse";
-    img.style.animationFillMode = "forwards";
-    img.style.animationDuration = "1s";
+    img02.style.animationName = "collapse";
+
+    img02.style.animationFillMode = "forwards";
+
+    img02.style.animationDuration = "1s";
 }
+function disapperText(){
+    let text02 = document.getElementById("text02");
 
-function disapperText() {
-    let text = document.getElementById("text01");
+    text02.style.animationName = "collapse";
 
-    text.style.animationName = "collapse";
-    text.style.animationFillMode = "forwards";
-    text.style.animationDuration = "1s";
+    text02.style.animationFillMode = "forwards";
+
+    text02.style.animationDuration = "1s";
+
+}
+function appearText(){
+
 }
