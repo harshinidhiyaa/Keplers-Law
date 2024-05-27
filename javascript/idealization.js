@@ -154,10 +154,6 @@ function setBtn(length)
         document.getElementById("curBt").style.background = "rgba(48, 51, 100, 0.75)";
         resetButton(1);
     }
-    else if(length > (3.3/6) && length < (4.4/6)){
-        document.getElementById("htBt").style.background = "rgba(48, 51, 100, 0.75)";
-        resetButton(2);
-    }
     else if(length > (4.4/6) && length < (5.8/6)){
         document.getElementById("grBt").style.background = "MediumSeaGreen";
         resetButton(3);
