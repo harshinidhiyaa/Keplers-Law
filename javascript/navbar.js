@@ -1,4 +1,4 @@
-var desc = ["Reality", "Idealization", "Geometric", "Algebraic"];
+var desc = ["Reality", "Idealization", "h", "Geometric", "Algebraic"];
 for (let i = 1; i <= 4; i++) {
     let text = document.getElementById("text" + i.toString());
     text.style.visibility = "visible";
