@@ -1,11 +1,11 @@
 #twobody {
   top: 0;
-  bottom: 0;
+  left: 0; /* Adjusted for square shape */
   outline: 8px solid #555;
   width: 100%;
   height: 100%;
   background: url("images/idealization2.jpeg");
-  background-size: 500px;
+  background-size: cover; /* Ensures the background image covers the entire square */
   opacity: 0; /* Set initial opacity to 0 */
   transition: opacity 0.5s ease; /* Adjust the duration and timing function as needed */
   position: absolute;
@@ -14,17 +14,18 @@
 
 #space {
   top: 0;
-  bottom: 0;
+  left: 0; /* Adjusted for square shape */
   outline: 8px solid #555;
   width: 100%;
   height: 100%;
   background: url("images/ideal12.gif");
-  background-size: 500px;
+  background-size: cover; /* Ensures the background image covers the entire square */
   opacity: 0; /* Set initial opacity to 0 */
   transition: opacity 0.5s ease; /* Adjust the duration and timing function as needed */
   position: absolute;
   z-index: 9;
 }
+
 
 
 #container {
