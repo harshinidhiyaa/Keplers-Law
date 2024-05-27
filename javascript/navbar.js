@@ -23,9 +23,9 @@ window.addEventListener("load", ()=>{
     if(i == 5) i=3;
     let width = d3.select(".navSvg").style("width").replace("px","");
     let xStart = parseInt(width/desc.length);
-    let xOffset = 20;
+    let xOffset = 30;
     let xEnd = (i+1)*xStart + xOffset;
-    xOffset = 80;
+    xOffset = 100;
     xStart += xOffset;
     
 
