@@ -2,8 +2,8 @@
   z-index: 10;
   top: 0;
   bottom: 0;
-  width: 130%;
-  height: 100%;
+  width: 70%;
+  height: 70%;
   background: url("images/realityimg1.gif");
   transition: opacity 0.5s ease; /* Adjust the duration and timing function as needed */
   position: static;
@@ -32,8 +32,8 @@
   z-index: 15;
   top: 0;
   bottom: 0;
-  width: 70%; /* Increase the width */
-  height: 70%; /* Increase the height */
+  width: 130%; /* Increase the width */
+  height: 100%; /* Increase the height */
   position: absolute;
   background-size: 1100px;
   overflow: hidden;
