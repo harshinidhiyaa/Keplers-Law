@@ -1,67 +1,102 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Idealization</title>
 
-    <head>
-        <title>Idealisation</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
-        <link rel = "stylesheet" href="css/frame.css">
-        <link rel = "stylesheet" href="css/idealisation.css">
-    </head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="earth.css">
+    <link rel="stylesheet" href="multi.css">
+    <link rel="stylesheet" href="idealization.css">
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="arrowstyle.css">
+    <link rel="stylesheet" href="arrow.css">
 
-    <body>
-        <!--logo-->
-        <a id="logo" href="index.html"><img src="images/logo.webp"></a>
-        
-        <!--page thumbnails-->
-        <div id="page_thumbnails_container"></div>
+</head>
+<body>
 
-        <!--progress-->
-        <div id="progress"></div>
-
-        <!--page names-->
-        <div id="page_names"></div>
-
-        <!--content-->
-        <div id="content">
-
-            <!--Aliceblue box-->
-            <div id="section_1">
-                <p id="heading"><b>Idealizing the real world systems</b></p>
-            Here we strip away details we consider unnecessary to solving the problem at hand.
-            <p id="descript">
-                <br>
-                <input type="range" class="slider" min="0" max="1" step="0.01" value="0" oninput="Changer(this.value)">
-                <ul>
-                    <li id="item1">We consider the oscillating systems as a mass point connected to a massless string.
-                    </li> <br>
-                    <li class="item2">Details like colour, material particulars, temparture etc are ignored.<br></li> <br>
-                    <li class="item2">We further assume that the medium is of uniform density.</li>
-                </ul> 
-                <p id="item3"><b>Let us now place the system in a mathematical grid !</b></p>
-            </p>
-            
+<div class="container-fluid">
+<!--    The Navigation Bar  -->
+    <div class="row navbar">
+        <div class="col-md-2 logo"><a href="overview.html"><img id="logo" src="images\logo.png" alt="dummy.jpg"></a></div>
+        <div class="col-md-2"><a href="reality.html"><img id="img1" src="images\over1.jpeg" alt="dummy.jpg"><div class="content" id="text1"></div></a></div>
+        <div class="col-md-2"><a href="#"><img class="selected" src="images\over2.png" alt="dummy.jpg"><div class="content" id="text2"></div></a></div>
+        <div class="col-md-2"><a href="geometric.html"><img id="img4" src="images\over4.png" alt="dummy.jpg"><div class="content" id="text4"></div></a></div>
+        <div class="col-md-2"><a href="algebraic.html"><img id="img5" src="images\over5.png" alt="dummy.jpg"><div class="content" id="text5"></div></a></div>
+        <svg class="navSvg" width="100%" height="20px">
+            <path id="track" stroke="black" stroke-width="10" style="stroke-opacity: 70%;"></path>
+        </svg>
+    </div>
+<!--    The Navigation Bar(close)  -->
+<!--    Main Body  -->
+    <div class="row">
+<!--    Left Hand Column(Blood pressure vs Atmospheric pressure)  -->
+        <div class="col-md-6 vh-100" style="padding: 10px;">
+            <h1>Idealization</h1>
+            <ul style="font-size: 1.0rem;">
+                <li>Here we strip away details we consider unnecessary to solving the problem at hand and focus on relevant abstraction.</li>
+                <li>Consider a two body system, Mars and Sun excluding the gravitational influence of the planet’s moons and external influence of other space objects
+                <li>A radius vector joining any planet to the Sun sweeps out equal areas in equal lengths of time. In this case, Mars takes 1 month for sweeping one section of the orbit when at aphelion and 1 month for sweeping another orbital arc section at perihelion. But, the areas should be equal. Let's verify this further. </li>
+</li>
+            </ul>
+            <div class="separate">
+                <div class="row v-h100">
+                    <div class="column">
+                        <div class="content" id="rotBt">Solar System</div>
+                    </div>
+                    <div class="column">
+                        <div class="content" id="curBt">.</div>
+                    </div>
+                    <div class="column">
+                        <div class="content" id="htBt">.</div>
+                    </div>
+                    <div class="column">
+                        <div class="content" id="grBt">.</div>
+                    </div>
+                    <div class="column">
+                        <div class="content" id="airBt">Two-Body System</div>
+                    </div>  
             </div>
 
-            <!--White box-->
-            <div id="section_2">
-                    <div id="knob"></div>
-                    <img id="ideal" src="images/real/realityimg0.gif">
-                    <img id="real" src="images/realityimg1.gif">
+            <center>Drag the slider to view the process of idealization</center>
+            <svg width="100%" height="50px" id="svg">
+                <defs>
+                    <path id="marker" stroke-linecap="round" d="M 0 25 H 30 L 15 50"/>
+                </defs>
+                <use xlink:href="#marker" id="marker1" fill="#5999e3"  y="0"/>
+                <use xlink:href="#marker" id="marker2" fill="#a6a5a2"  y="0"/>
+                <use xlink:href="#marker" id="marker3" fill="#a6a5a2"  y="0"/>
+                <use xlink:href="#marker" id="marker4" fill="#a6a5a2"  y="0"/>
+                <use xlink:href="#marker" id="marker5" fill="#a6a5a2"  y="0"/>
+                <use xlink:href="#marker" id="marker6" fill="#a6a5a2"  y="0"/>
+                <use xlink:href="#marker" id="marker7" fill="#a6a5a2"  y="0"/>
+            </svg>
+            <div class="slidecontainer">
+                <input style=" z-index: 20; width: 100%;" step="0.1" type="range" min="0" max="100" value="0" class="slider" id="myRange02" autocomplete="off">
             </div>
+            </div>
+        </div>
+<!--        Left Hand Column(close)  -->
+<!--        Center Column(System)  -->
+        <div class="col-md-6" style="position: relative; text-align: center; background-color: #e8eefa;">
+            <div id="container">
+                <div id="earthContainer"><div id="earth"></div></div>
+                <div id="space"></div>
+                <div id="selection" style="cursor: pointer;" onclick="window.location='discretization.html';"></div>
+                <!-- <div class="arrowBody" style="left:110%;">
+                    <div class="arrow right"></div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+<!--    Main Body(close)  -->
+</div>
 
-        </div> 
-
-        <!--navigation-->
-        <span id="navigator"></span>
-        
-        <!--script after loading page-->
-        <script type="text/javascript" src="js/frame.js"></script>
-        <script type="text/javascript" src="js/idealization.js"></script>
-        <script type="text/javascript" src="js/navbar.js"></script>
-
-
-    </body>
-
+</body>
+<script src="javascript\idealization.js"></script>
+<script src="javascript\navbar.js"></script>
 </html>
