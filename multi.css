@@ -8,7 +8,7 @@
   background-size: cover;
   opacity: 0;
   transition: opacity 0.2s ease; /* Adjusted the transition duration */
-  position: absolute;
+  position: static;
   z-index: 9;
 }
 
@@ -22,7 +22,7 @@
   background-size: cover;
   opacity: 0;
   transition: opacity 0.2s eas; /* Adjusted the transition duration */
-  position: absolute;
+  position: static;
   z-index: 9;
 }
 
