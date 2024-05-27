@@ -4,8 +4,6 @@ function svgResize()
         .attr("x", 0);
     d3.select("#marker2")
         .attr("x", (1/6)*d3.select("#svg").style("width").replace("px", ""));
-        d3.select("#marker3")
-        .attr("x", (2.3/6)*d3.select("#svg").style("width").replace("px", ""));
     d3.select("#marker4")
         .attr("x", (3.3/6)*d3.select("#svg").style("width").replace("px", ""));
         d3.select("#marker5")
