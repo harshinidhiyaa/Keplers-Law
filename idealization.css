@@ -4,10 +4,10 @@
     padding: 10px;
 }
 .column:first-child {
-    margin-left: 35px; /* Add margin to the left of the first column */
+    margin-left: 30x; /* Add margin to the left of the first column */
 }
 .column:not(:last-child) {
-    margin-right: 25px; /* Add margin between each column except for the last one */
+    margin-right: 20px; /* Add margin between each column except for the last one */
 }
 .row .column .content{
     text-align: center;
