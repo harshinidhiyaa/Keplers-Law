@@ -3,8 +3,8 @@
     width: 20%;
     padding: 10px;
 }
-.column:(:first-child) {
-    margin-left: 35px; /* Add margin between each column except for the last one */
+.column:first-child {
+    margin-left: 35px; /* Add margin to the left of the first column */
 }
 .column:not(:last-child) {
     margin-right: 35px; /* Add margin between each column except for the last one */
