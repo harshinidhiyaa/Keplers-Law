@@ -22,17 +22,11 @@ d3.select('#myRange02').on("input", function() {
     setZoomCurve(length);
 });
 
-function setAxisSelection(length) {
-    if (length < 4.3 / 5)
-        document.getElementById("selection").style.zIndex = "0";
-    else
-        document.getElementById("selection").style.zIndex = "25";
-}
 
 function setAnim(length) {
-    if (length < (2 / 5)) {
+    if (length < (1.5 / 5)) {
         document.getElementById("earth").style.webkitAnimationPlayState = "running";
-    } else if (length > 2 / 5) {
+    } else if (length > 1.5 / 5) {
         document.getElementById("earth").style.webkitAnimationPlayState = "paused";
         document.getElementById("earth").style.webkitAnimationTimingFunction = "cubic-bezier(0,0,1,1)";
     }
@@ -41,6 +35,8 @@ function setAnim(length) {
 function setImage(length) {
     document.getElementById("earth").style.opacity = opacity(length, 2.7 / 5, 3 / 5).toString() + "%";
     document.getElementById("space").style.opacity = opacity(length, 2.8 / 5, 3 / 5).toString() + "%";
+    document.getElementById("twobody").style.opacity = opacity(length, 4.0 / 5, 4 / 5).toString() + "%";
+
 }
 
 function opacity(length, min, max) {
