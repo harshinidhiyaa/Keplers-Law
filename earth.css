@@ -2,8 +2,8 @@
   z-index: 10;
   top: 0;
   bottom: 0;
-  width: 50%;
-  height: 50%;
+  width: 180%;
+  height: 120%;
   background: url("images/realityimg1.gif");
   transition: opacity 0.5s ease; /* Adjust the duration and timing function as needed */
   position: static;
