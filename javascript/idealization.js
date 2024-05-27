@@ -30,9 +30,9 @@ function setAxisSelection(length) {
 }
 
 function setAnim(length) {
-    if (length < (1 / 5)) {
+    if (length < (2 / 5)) {
         document.getElementById("earth").style.webkitAnimationPlayState = "running";
-    } else if (length > 1 / 5) {
+    } else if (length > 2 / 5) {
         document.getElementById("earth").style.webkitAnimationPlayState = "paused";
         document.getElementById("earth").style.webkitAnimationTimingFunction = "cubic-bezier(0,0,1,1)";
     }
