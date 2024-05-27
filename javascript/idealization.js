@@ -1,3 +1,13 @@
+// Event listener for the slider
+d3.select('#myRange02').on("input", function() {
+    let value = d3.select(this).property("value");
+    let max = d3.select(this).property("max");
+    let min = d3.select(this).property("min");
+    let length = value / (max - min);
+
+    morphGIFs(length);
+});
+
 function morphGIFs(length) {
     const transitionDuration = 500; // Duration of the opacity transition in milliseconds
 
