@@ -1,21 +1,18 @@
-// Event listener for the slider
-d3.select('#myRange02').on("input", function() {
-    let value = d3.select(this).property("value");
-    let max = d3.select(this).property("max");
-    let min = d3.select(this).property("min");
-    let length = value / (max - min);
-
-    morphGIFs(length);
-});
-
 function morphGIFs(length) {
-    // Calculate opacity for each GIF based on slider position
-    let earthOpacity = Math.max(0, Math.min(1, 1 - 3 * length));
-    let spaceOpacity = Math.max(0, Math.min(1, 3 * length - 1));
-    let twobodyOpacity = Math.max(0, Math.min(1, 3 * length - 2));
+    const transitionDuration = 500; // Duration of the opacity transition in milliseconds
 
-    // Set opacity for each GIF
-    document.getElementById("earth").style.opacity = earthOpacity;
-    document.getElementById("space").style.opacity = spaceOpacity;
-    document.getElementById("twobody").style.opacity = twobodyOpacity;
+    // Calculate opacity values for each GIF
+    let opacityEarth = Math.max(1 - length, 0);
+    let opacitySpace = Math.min(Math.max(length - 0.2, 0), 1);
+    let opacityTwobody = Math.min(length - 0.5, 1);
+
+    // Apply opacity transition to each GIF
+    document.getElementById("earth").style.opacity = opacityEarth;
+    document.getElementById("space").style.opacity = opacitySpace;
+    document.getElementById("twobody").style.opacity = opacityTwobody;
+
+    // Adjust transition duration to synchronize all GIFs
+    document.getElementById("earth").style.transition = `opacity ${transitionDuration}ms ease-in-out`;
+    document.getElementById("space").style.transition = `opacity ${transitionDuration}ms ease-in-out`;
+    document.getElementById("twobody").style.transition = `opacity ${transitionDuration}ms ease-in-out`;
 }
