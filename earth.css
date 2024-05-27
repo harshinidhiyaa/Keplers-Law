@@ -7,7 +7,7 @@
   background: url("images/idealization.jpeg");
   transition: opacity 0.5s ease; /* Adjust the duration and timing function as needed */
   position: static;
-  background-size: 300px;
+  background-size: 100%;
 }
 
 @keyframes rotate {
