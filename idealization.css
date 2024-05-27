@@ -1,7 +1,10 @@
 .column{
     text-align: center;
     width: 20%;
-    padding: 30px;
+    padding: 10px;
+}
+.column:not(:last-child) {
+    margin-right: 20px; /* Add margin between each column except for the last one */
 }
 .row .column .content{
     text-align: center;
