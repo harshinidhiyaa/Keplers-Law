@@ -2,12 +2,12 @@
   z-index: 10;
   top: 0;
   bottom: 0;
-  width: 70%;
-  height: 70%;
+  width: 100%;
+  height: 100%;
   background: url("images/idealization.jpeg");
   transition: opacity 0.5s ease; /* Adjust the duration and timing function as needed */
   position: static;
-  background-size: 500px;
+  background-size: 300px;
 }
 
 @keyframes rotate {
