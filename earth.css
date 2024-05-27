@@ -32,7 +32,7 @@
   z-index: 15;
   top: 0;
   bottom: 0;
-  width: 130%; /* Increase the width */
+  width: 100%; /* Increase the width */
   height: 100%; /* Increase the height */
   position: absolute;
   background-size: 1100px;
