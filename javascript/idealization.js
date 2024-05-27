@@ -1,9 +1,9 @@
 function svgResize() {
     d3.select("#marker1").attr("x", 0);
-    d3.select("#marker2").attr("x", (1 / 6) * d3.select("#svg").style("width").replace("px", ""));
-    d3.select("#marker4").attr("x", (3.3 / 6) * d3.select("#svg").style("width").replace("px", ""));
-    d3.select("#marker5").attr("x", (4.4 / 6) * d3.select("#svg").style("width").replace("px", ""));
-    d3.select("#marker6").attr("x", (5.8 / 6) * d3.select("#svg").style("width").replace("px", ""));
+    d3.select("#marker2").attr("x", (1 / 5) * d3.select("#svg").style("width").replace("px", ""));
+    d3.select("#marker4").attr("x", (2.3 / 5) * d3.select("#svg").style("width").replace("px", ""));
+    d3.select("#marker5").attr("x", (3.3 / 5) * d3.select("#svg").style("width").replace("px", ""));
+    d3.select("#marker6").attr("x", (4.4 / 5) * d3.select("#svg").style("width").replace("px", ""));
 }
 
 window.addEventListener("load", svgResize());
@@ -23,24 +23,24 @@ d3.select('#myRange02').on("input", function() {
 });
 
 function setAxisSelection(length) {
-    if (length < 5.7 / 6)
+    if (length < 4.3 / 5)
         document.getElementById("selection").style.zIndex = "0";
     else
         document.getElementById("selection").style.zIndex = "25";
 }
 
 function setAnim(length) {
-    if (length < (1 / 6)) {
+    if (length < (1 / 5)) {
         document.getElementById("earth").style.webkitAnimationPlayState = "running";
-    } else if (length > 1 / 6) {
+    } else if (length > 1 / 5) {
         document.getElementById("earth").style.webkitAnimationPlayState = "paused";
         document.getElementById("earth").style.webkitAnimationTimingFunction = "cubic-bezier(0,0,1,1)";
     }
 }
 
 function setImage(length) {
-    document.getElementById("earth").style.opacity = opacity(length, 2.7 / 6, 3 / 6).toString() + "%";
-    document.getElementById("space").style.opacity = opacity(length, 2.8 / 6, 3 / 6).toString() + "%";
+    document.getElementById("earth").style.opacity = opacity(length, 2.7 / 5, 3 / 5).toString() + "%";
+    document.getElementById("space").style.opacity = opacity(length, 2.8 / 5, 3 / 5).toString() + "%";
 }
 
 function opacity(length, min, max) {
@@ -53,12 +53,12 @@ function opacity(length, min, max) {
 }
 
 function setText(length) {
-    if (length < 1 / 6) {
+    if (length < 1 / 5) {
         document.getElementById("marker2").style.fill = "#a6a5a2";
         document.getElementById("marker4").style.fill = "#a6a5a2";
         document.getElementById("marker5").style.fill = "#a6a5a2";
         document.getElementById("marker6").style.fill = "#a6a5a2";
-    } else if (length > (1 / 6) && length < (2 / 6)) {
+    } else if (length > (1 / 5) && length < (2 / 5)) {
         document.getElementById("marker2").style.fill = "#5999e3";
         document.getElementById("marker4").style.fill = "#a6a5a2";
         document.getElementById("marker5").style.fill = "#a6a5a2";
@@ -67,7 +67,7 @@ function setText(length) {
 }
 
 function setZoomCurve(length) {
-    if (length < 2 / 6) {
+    if (length < 2 / 5) {
         let len = 0;
         let top = len * 90;
         let radius = -180 * len + 110;
@@ -83,7 +83,7 @@ function setZoomCurve(length) {
         document.getElementById("earth").style.left = left.toString() + "%";
         document.getElementById("space").style.borderRadius = radius.toString() + "%";
 
-    } else if (length > 4 / 6) {
+    } else if (length > 4 / 5) {
         let len = 2;
         let top = len * 90;
         let radius = -180 * len + 110;
@@ -100,7 +100,7 @@ function setZoomCurve(length) {
         document.getElementById("space").style.borderRadius = radius.toString() + "%";
 
     } else {
-        let len = (length - 2 / 6) * 6;
+        let len = (length - 2 / 5) * 5;
         let top = len * 90;
         let radius = -180 * len + 110;
         let dim = 300 * len + 100;
@@ -118,15 +118,15 @@ function setZoomCurve(length) {
 }
 
 function setBtn(length) {
-    if (length < (1 / 6)) {
+    if (length < (1 / 5)) {
         resetButton(-1);
-    } else if (length > (1 / 6) && length < (2 / 6)) {
+    } else if (length > (1 / 5) && length < (2 / 5)) {
         document.getElementById("rotBt").style.background = "rgba(48, 51, 100, 0.75)";
         resetButton(0);
-    } else if (length > (2.3 / 6) && length < (3.3 / 6)) {
+    } else if (length > (2.3 / 5) && length < (3.3 / 5)) {
         document.getElementById("curBt").style.background = "rgba(48, 51, 100, 0.75)";
         resetButton(1);
-    } else if (length > (4.4 / 6) && length < (5.8 / 6)) {
+    } else if (length > (4.4 / 6) && length < (4.8 / 5)) {
         document.getElementById("grBt").style.background = "MediumSeaGreen";
         resetButton(3);
     } else if (length >= (5.8 / 6
