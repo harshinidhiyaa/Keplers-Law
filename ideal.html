@@ -1,55 +1,45 @@
-
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Idealization</title>
+<html>
 
-    <script src="https://d3js.org/d3.v7.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <head>
+        <title>Idealisation</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="earth.css">
-    <link rel="stylesheet" href="multi.css">
-    <link rel="stylesheet" href="idealization.css">
-    <link rel="stylesheet" href="navbar.css">
-    <link rel="stylesheet" href="arrowstyle.css">
-    <link rel="stylesheet" href="arrow.css">
+        <link rel = "stylesheet" href="css/frame.css">
+        <link rel = "stylesheet" href="css/idealisation.css">
+    </head>
 
-</head>
-<body>
+    <body>
+        <!--logo-->
+        <a id="logo" href="index.html"><img src="images/logo.webp"></a>
+        
+        <!--page thumbnails-->
+        <div id="page_thumbnails_container"></div>
 
-<div class="container-fluid">
-<!--    The Navigation Bar  -->
-    <div class="row navbar">
-        <div class="col-md-2 logo"><a href="overview.html"><img id="logo" src="images\logo.png" alt="dummy.jpg"></a></div>
-        <div class="col-md-2"><a href="reality.html"><img id="img1" src="images\over1.jpeg" alt="dummy.jpg"><div class="content" id="text1"></div></a></div>
-        <div class="col-md-2"><a href="#"><img class="selected" src="images\over2.png" alt="dummy.jpg"><div class="content" id="text2"></div></a></div>
-        <div class="col-md-2"><a href="geometric.html"><img id="img4" src="images\over4.png" alt="dummy.jpg"><div class="content" id="text4"></div></a></div>
-        <div class="col-md-2"><a href="algebraic.html"><img id="img5" src="images\over5.png" alt="dummy.jpg"><div class="content" id="text5"></div></a></div>
-        <svg class="navSvg" width="100%" height="20px">
-            <path id="track" stroke="black" stroke-width="10" style="stroke-opacity: 70%;"></path>
-        </svg>
-    </div>
-<!--    The Navigation Bar(close)  -->
-<!--    Main Body  -->
-    <div id="content">
+        <!--progress-->
+        <div id="progress"></div>
+
+        <!--page names-->
+        <div id="page_names"></div>
+
+        <!--content-->
+        <div id="content">
 
             <!--Aliceblue box-->
             <div id="section_1">
                 <p id="heading"><b>Idealizing the real world systems</b></p>
-            Here we strip away details we consider unnecessary to solving the problem at hand and focus on relevant abstraction.
+            Here we strip away details we consider unnecessary to solving the problem at hand.
             <p id="descript">
                 <br>
                 <input type="range" class="slider" min="0" max="1" step="0.01" value="0" oninput="Changer(this.value)">
                 <ul>
-                    <li id="item1">Consider a two body system, Mars and Sun excluding the gravitational influence of the planet’s moons and external influence of other space objects
+                    <li id="item1">We consider the oscillating systems as a mass point connected to a massless string.
                     </li> <br>
-                    <li class="item2">A radius vector joining any planet to the Sun sweeps out equal areas in equal lengths of time.<br></li> <br>
-                    <li class="item2">In this case, Mars takes 1 month for sweeping one section of the orbit when at aphelion and 1 month for sweeping another orbital arc section at perihelion.</li>
+                    <li class="item2">Details like colour, material particulars, temparture etc are ignored.<br></li> <br>
+                    <li class="item2">We further assume that the medium is of uniform density.</li>
                 </ul> 
-                <p id="item3"><b> But, the areas should be equal. Let's verify this further.</b></p>
+                <p id="item3"><b>Let us now place the system in a mathematical grid !</b></p>
             </p>
             
             </div>
@@ -67,7 +57,7 @@
         <span id="navigator"></span>
         
         <!--script after loading page-->
-        <script type="text/javascript" src="js/navbar.js"></script>
+        <script type="text/javascript" src="js/frame.js"></script>
         <script type="text/javascript" src="js/idealization.js"></script>
 
     </body>
