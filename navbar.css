@@ -10,7 +10,7 @@
     z-index:2;
 }
 .navSvg{
-    z-index: 1;
+    z-index: 0;
     top: 15px; 
     position: absolute;
 }
