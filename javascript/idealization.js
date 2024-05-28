@@ -7,6 +7,7 @@ d3.select('#myRange02').on("input", function() {
 
     morphGIFs(length);
 });
+
 function morphGIFs(length) {
     const transitionDuration = 500; // Duration of the opacity transition in milliseconds
 
@@ -22,6 +23,7 @@ function morphGIFs(length) {
 
     // Adjust transition duration to synchronize all GIFs
     document.getElementById("earth").style.transition = `opacity ${transitionDuration}ms ease-in-out`;
-    document.getElementById("space").style.transition = `opacity ${transitionDuration}ms ease-in-out`;
-    document.getElementById("twobody").style.transition = `opacity ${transitionDuration}ms ease-in-out`;
+    document.getElementById("space").style.transition = `opacity ${transitionDuration}ms ease-in-out ${transitionDuration * 0.2}ms`; // Delay transition for 20% of duration
+    document.getElementById("twobody").style.transition = `opacity ${transitionDuration}ms ease-in-out ${transitionDuration * 0.5}ms`; // Delay transition for 50% of duration
 }
+
