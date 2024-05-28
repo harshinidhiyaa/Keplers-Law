@@ -1,30 +1,30 @@
 var desc = ["Reality", "Idealization", "Geometric", "Algebraic"];
-for(let i = 1; i <= desc.length; i++) {
+for(let i = 1; i <= desc.length; i++)
+{
     let text = document.getElementById("text" + i.toString());
     text.style.visibility = "visible";
     text.innerHTML = desc[i-1];
 }
 
-window.addEventListener("load", () => {
+window.addEventListener("load", ()=>{
     let link = [
         "/reality.html",
         "/idealization.html",
         "/geometric.html",
-        "/geometric2.html", // Assuming this is the one removed
         "/algebraic.html",
-        "/algebraic2.html"
     ];
-
-    let loc = window.location.pathname.replace("/Keplers-Law", "");
+    
+    let loc = window.location.pathname.replace("/Barometric-Formula", "");
     let i = link.indexOf(loc);
-    if(i >= 3) i--; // Adjust the index to account for the removed item
-
+    if(i == 3) i = 2;
+    if(i == 4 || i == 5) i = 3;
     let width = d3.select(".navSvg").style("width").replace("px","");
-    let xStart = parseInt(width / desc.length);
-    let xOffset = 30;
-    let xEnd = (i + 1) * xStart + xOffset;
-    xOffset = 100;
+    let xStart = parseInt(width/desc.length);
+    let xOffset = 20;
+    let xEnd = (i+1)*xStart + xOffset;
+    xOffset = 80;
     xStart += xOffset;
 
-    d3.select("#track").attr("d", "M " + xStart + " 15 H " + xEnd);
-});
+    d3.select("#track").attr("d", "M " +  xStart + " 15 H " + xEnd);
+})
+
