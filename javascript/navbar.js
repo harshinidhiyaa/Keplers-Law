@@ -27,4 +27,3 @@ window.addEventListener("load", ()=>{
 
     d3.select("#track").attr("d", "M " +  xStart + " 15 H " + xEnd);
 })
-
