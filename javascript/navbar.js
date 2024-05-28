@@ -1,6 +1,5 @@
 var desc = ["Reality", "Idealization", "Geometric", "Algebraic"];
-for(let i = 1; i <= desc.length; i++)
-{
+for(let i = 1; i <= desc.length; i++) {
     let text = document.getElementById("text" + i.toString());
     text.style.visibility = "visible";
     text.innerHTML = desc[i-1];
@@ -11,23 +10,19 @@ window.addEventListener("load", ()=>{
         "/reality.html",
         "/idealization.html",
         "/geometric.html",
-        "/geometric2.html",
-        "/algebraic.html",
-        "/algebraic2.html"
+        "/algebraic.html"
     ];
     
     let loc = window.location.pathname.replace("/Keplers-Law", "");
     let i = link.indexOf(loc);
-    if(i==3) i=2;
-    if(i == 4) i=3;
-    if(i == 5) i=3;
+    // No need to adjust indices manually anymore, as the link array matches the desc array directly
+
     let width = d3.select(".navSvg").style("width").replace("px","");
-    let xStart = parseInt(width/desc.length);
+    let xStart = parseInt(width / desc.length);
     let xOffset = 30;
-    let xEnd = (i+1)*xStart + xOffset;
+    let xEnd = (i + 1) * xStart + xOffset;
     xOffset = 100;
     xStart += xOffset;
-    
 
-    d3.select("#track").attr("d", "M " +  xStart + " 15 H " + xEnd);
-})
+    d3.select("#track").attr("d", "M " + xStart + " 15 H " + xEnd);
+});
