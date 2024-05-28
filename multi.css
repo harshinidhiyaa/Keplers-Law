@@ -7,7 +7,6 @@
   background: url("images/idealization2.jpeg");
   background-size: cover;
   opacity: 0;
-  transition: opacity 0.2s ease; /* Adjusted the transition duration */
   position: absolute;
   z-index: 9;
 }
@@ -21,7 +20,6 @@
   background: url("images/ideal12.gif");
   background-size: 500px;
   opacity: 0; /* Set initial opacity to 0 */
-  transition: opacity 0.5s ease; /* Adjust the duration and timing function as needed */
   position: absolute;
   z-index: 9;
 }
