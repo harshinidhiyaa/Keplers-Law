@@ -5,17 +5,19 @@ for(let i = 1; i <= desc.length; i++) {
     text.innerHTML = desc[i-1];
 }
 
-window.addEventListener("load", ()=>{
+window.addEventListener("load", () => {
     let link = [
         "/reality.html",
         "/idealization.html",
         "/geometric.html",
-        "/algebraic.html"
+        "/geometric2.html", // Assuming this is the one removed
+        "/algebraic.html",
+        "/algebraic2.html"
     ];
-    
+
     let loc = window.location.pathname.replace("/Keplers-Law", "");
     let i = link.indexOf(loc);
-    // No need to adjust indices manually anymore, as the link array matches the desc array directly
+    if(i >= 3) i--; // Adjust the index to account for the removed item
 
     let width = d3.select(".navSvg").style("width").replace("px","");
     let xStart = parseInt(width / desc.length);
