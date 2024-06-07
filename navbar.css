@@ -14,6 +14,12 @@
     top: 15px; 
     position: absolute;
 }
+.svgNav{
+    z-index: 1;
+    top: 15px; 
+    opacity: 50%;
+    position: absolute;
+}
 .nextNav{
     overflow: visible;
     top: 15px; 
