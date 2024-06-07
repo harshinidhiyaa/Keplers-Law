@@ -27,3 +27,24 @@ window.addEventListener("load", ()=>{
 
     d3.select("#track").attr("d", "M " +  xStart + " 15 H " + xEnd);
 })
+var link = [
+    "/overview.html",
+    "/reality.html",
+    "/ideal.html",
+    "/geometric.html",
+    "/algebraic.html"
+];
+var loc = window.location.pathname.replace("/Keplers-Law", "");
+var linkIndex = link.indexOf(loc);
+d3.select("#nextBtn").on("mousedown", ()=>{
+    window.location =  "/Keplers-Law" + link[linkIndex+1];
+});
+// d3.select("#prevBtn").on("mousedown", ()=>{
+//     window.location = link[linkIndex-1];
+// });
+function fadeIn(){
+    // d3.select("body").append("div").attr("id", "fade")
+    //     .style("font-size","50px").style("width", "100vw").style("height", "100vh")
+    //     .style("position", "fixed").style("top", "0vh").style("left", "0vw")
+    //     .style("background", "black").style("z-index", "100").style("animation", "fade 2s forwards");
+}
