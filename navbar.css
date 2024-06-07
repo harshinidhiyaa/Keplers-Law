@@ -73,3 +73,29 @@
 #navBtn:hover{
     fill: #0e8a5a;
 }
+.content:hover{
+    background: #e74c3c;
+  }
+  .btnNav{
+      position: absolute;
+      background-color: #555;
+    border-radius: 30%;
+    z-index: 20;
+    top: 25vh;
+    left: 1vw;
+  }
+  #nextBtn{
+      left: 92vw;
+      top: 50vh;
+      height: 50px;
+      width: 50px;
+  }
+  #prevBtn{
+      left:95%;
+      height: 50px;
+      width: 50px;
+  }
+  .btnNav:hover{
+    background-color: rgb(9, 194, 9);
+    cursor: pointer;
+  }
