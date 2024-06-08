@@ -1,9 +1,10 @@
 var desc = ["Reality", "Idealization", "Geometric", "Algebraic"];
-for(let i = 1; i <= desc.length; i++)
-{
+for(let i = 1; i <= desc.length; i++) {
     let text = document.getElementById("text" + i.toString());
-    text.style.visibility = "visible";
-    text.innerHTML = desc[i-1];
+    if (text) {
+        text.style.visibility = "visible";
+        text.innerHTML = desc[i-1];
+    }
 }
 
 window.addEventListener("load", ()=>{
@@ -16,19 +17,16 @@ window.addEventListener("load", ()=>{
     
     let loc = window.location.pathname.replace("/Barometric-Formula", "");
     let i = link.indexOf(loc);
-    if(i==4) i=3;
-    if(i == 5) i=4;
-    if(i == 6) i=4;
-    let width = d3.select(".navSvg").style("width").replace("px","");
-    let xStart = parseInt(width/6);
-    let xOffset = 20;
-    let xEnd = (i+1)*xStart + xOffset;
-    xOffset = 80;
-    xStart += xOffset;
-    
+    if (i === -1) i = 0; // Default to the first link if not found
 
-    d3.select("#track").attr("d", "M " +  xStart + " 15 H " + xEnd);
-})
+    let width = parseInt(d3.select(".navSvg").style("width").replace("px", ""), 10);
+    let xOffset = 100; // Combined offset
+    let xStart = (i + 1) * (width / 6) + xOffset;
+    let xEnd = xStart + 20;
+
+    d3.select("#track").attr("d", "M " + xStart + " 15 H " + xEnd);
+});
+
 
 var link = [
     "/overview.html",
