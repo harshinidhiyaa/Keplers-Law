@@ -14,45 +14,21 @@ window.addEventListener("load", ()=>{
         "/algebraic.html",
     ];
     
-    let loc = window.location.pathname.replace("/Keplers-Law", "");
-    let i =0;
-    
-    switch(loc){
-        case link[0]:
-            break;
-        case link[1]:
-            i=1;
-            break;
-        case link[2]:
-            i=2;
-            break;
-        case link[3]:
-        case link[4]:
-        case link[5]:
-            i=3;
-            break;
-        case link[7]:
-        case link[8]:
-        case link[6]:
-            i=4;
-            break;
-        // case link[8]:
-        // case link[9]:
-        // case link[10]:
-        //     i=4;
-        //     break;
-    }
-    let width = d3.select(".svgNav").style("width").replace("px","");
+    let loc = window.location.pathname.replace("/Barometric-Formula", "");
+    let i = link.indexOf(loc);
+    if(i==4) i=3;
+    if(i == 5) i=4;
+    if(i == 6) i=4;
+    let width = d3.select(".navSvg").style("width").replace("px","");
     let xStart = parseInt(width/6);
     let xOffset = 20;
     let xEnd = (i+1)*xStart + xOffset;
-    xOffset = 92;
+    xOffset = 80;
     xStart += xOffset;
     
 
     d3.select("#track").attr("d", "M " +  xStart + " 15 H " + xEnd);
-    fadeIn();
-});
+})
 
 var link = [
     "/overview.html",
