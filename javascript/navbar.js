@@ -20,8 +20,8 @@ window.addEventListener("load", ()=>{
 
     let width = parseInt(d3.select(".navSvg").style("width").replace("px", ""), 10);
     // Calculate the start and end positions of the line
-    let xOffsetStart = 100; // Starting offset
-    let xOffsetEnd = 200; // Ending offset to increase the line length
+    let xOffsetStart = 150; // Starting offset
+    let xOffsetEnd = 300; // Ending offset to increase the line length
     let xStart = (i + 1) * (width / 6) + xOffsetStart;
     let xEnd = xStart + xOffsetEnd;
     
