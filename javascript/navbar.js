@@ -9,7 +9,6 @@ for(let i = 1; i <= desc.length; i++) {
 
 window.addEventListener("load", ()=>{
     let link = [
-        "/reality.html",
         "/idealization.html",
         "/geometric.html",
         "/algebraic.html",
@@ -20,9 +19,15 @@ window.addEventListener("load", ()=>{
     if (i === -1) i = 0; // Default to the first link if not found
 
     let width = parseInt(d3.select(".navSvg").style("width").replace("px", ""), 10);
-    let xOffset = 100; // Combined offset
-    let xStart = (i + 1) * (width / 6) + xOffset;
-    let xEnd = xStart + 20;
+    // Calculate the start and end positions of the line
+    let xOffsetStart = 100; // Starting offset
+    let xOffsetEnd = 200; // Ending offset to increase the line length
+    let xStart = (i + 1) * (width / 6) + xOffsetStart;
+    let xEnd = xStart + xOffsetEnd;
+    
+    //let xOffset = 100; // Combined offset
+    //let xStart = (i + 1) * (width / 6) + xOffset;
+    //let xEnd = xStart + 20;
 
     d3.select("#track").attr("d", "M " + xStart + " 15 H " + xEnd);
 });
