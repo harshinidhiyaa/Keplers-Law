@@ -15,7 +15,7 @@ window.addEventListener("load", ()=>{
         "/algebraic.html",
     ];
     
-    let loc = window.location.pathname.replace("/Barometric-Formula", "");
+    let loc = window.location.pathname.replace("/Keplers-Law", "");
     let i = link.indexOf(loc);
     if (i === -1) i = 0; // Default to the first link if not found
 
