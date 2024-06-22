@@ -1,7 +1,7 @@
-document.getElementById("img01").src = "images\\real\\helio2.gif";
-document.getElementById("img02").src = "images\\real\\kepler.png";
-document.getElementById("img03").src = "images\\real\\helio.png";  // Add this line
-document.getElementById("img04").src = "images\\real\\reality1.jpg";
+document.getElementById("img01").src = "Keplers-Law\\images\\real\\helio2.gif";
+document.getElementById("img02").src = "Keplers-Law\\images\\real\\kepler.png";
+document.getElementById("img03").src = "Keplers-Law\\images\\real\\helio.png";  // Add this line
+document.getElementById("img04").src = "Keplers-Law\\images\\real\\reality1.jpg";
 document.getElementById("text02").innerHTML = "Johannes Kepler, a German astronomer, formulated three laws that transformed our understanding of planetary motion around the Sun.";
 document.getElementById("text03").innerHTML = "Kepler describes the heliocentric model where the Sun is at the center, and planets, including Earth, orbit around it in the solar system. ";  // Add this line
 document.getElementById("text04").innerHTML = "The orbit of a planet around the Sun is an ellipse, with the Sun located at one of the two foci of the ellipse.";  // Add this line
