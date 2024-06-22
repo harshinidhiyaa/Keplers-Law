@@ -14,25 +14,15 @@ position: relative;
   text-align: center;
    overflow:visible;
 }
-#img01{
-   border: 8px solid #555;
-   height: 30%;  /* Adjusted height for an oval shape */
-   width: 90%;   /* Adjusted width for an oval shape */
-   border-radius: 50%; /* Perfect oval shape */
-   position: absolute;
-   left: 5%;  /* Adjusted for better centering */
-   top: 10%;   /* Adjusted for better centering */
+#img01, #img02, #img03, #img04{
+border: 8px solid #555;
+ height: 45%;
+  width:85%;
+  border-radius: 50%;
+  position:absolute;
+  left: 20px;
+  top: 10px;
 }
-#img02{
-   border: 8px solid #555;
-   height: 45%;
-   width:85%;
-   border-radius: 50%;
-   position:absolute;
-   left: 20px;
-   top: 10px;
-}
-
 #img02, #img03, #img04, #text02, #text03, #text04, #next02, #next03, #next04{
     visibility: hidden;
 }
@@ -45,7 +35,7 @@ position: relative;
       background: rgba(0, 0, 0, 0.75);
       color: #f1f1f1;
       width: 90%;
-      height: 15%;
+      height: 18%;
       padding: 20px;
 }
 
