@@ -27,7 +27,7 @@
       --accent-emerald: #10b981;
     }
 
-    /* FIXES THE THICK WHITE BORDER: Erases the 20px #e8eefa frame globally inherited from style.css */
+    /* FIXES THE THICK WHITE BORDER from global style.css */
     html {
       border: none !important;
       border-width: 0px !important;
@@ -40,19 +40,19 @@
       margin: 0 !important;
       padding: 0 !important;
       min-height: 100vh;
-      overflow-y: auto !important; /* Forces scrollability over the global lock hidden tag */
+      overflow-y: auto !important; 
       background-image: radial-gradient(white, rgba(255,255,255,.08) 1px, transparent 30px);
       background-size: 300px 300px;
       color: var(--text-main);
       font-family: 'Inter', sans-serif;
     }
 
-    /* Initial Visibility Reset to sync clean with your reality2.js reveal timeline engine loop */
-    #img02, #text02, #next02,
-    #img03, #text03, #next03,
-    #img04, #text04, #next04,
-    #idealize {
-      visibility: hidden;
+    /* PREMIUM TIMELINE DECK CONTROLLER: Structural wrappers start hidden to prevent pop-in */
+    .telemetry-card-wrapper {
+      display: none;
+    }
+    .telemetry-card-wrapper.visible-card {
+      display: block;
     }
 
     /* Premium Modular Navigation Header Bar */
@@ -108,7 +108,6 @@
       font-weight: 500;
     }
 
-    /* Active State Highlighter */
     .nav-node-item.active-step {
       background: rgba(255, 255, 255, 0.05);
       border-color: var(--border);
@@ -117,7 +116,7 @@
       color: #fff;
     }
 
-    /* Presentation Content Layouts */
+    /* Presentation Layout Grid config */
     .intro-prompt {
       max-width: 850px;
       margin: 40px auto 24px;
@@ -132,10 +131,10 @@
       font-weight: 400;
     }
 
-    /* Telemetry Matrix Grid */
     .telemetry-row {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
       gap: 24px;
       max-width: 1400px;
       margin: 0 auto;
@@ -147,6 +146,8 @@
       border: 1px solid var(--border);
       border-radius: 16px;
       padding: 20px;
+      width: 280px;
+      min-height: 340px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -162,27 +163,23 @@
       border-radius: 8px;
       background: #000;
       border: 1px solid rgba(255,255,255,0.04);
+      position: relative; /* Allows keyframe animation to translate path positions */
     }
 
     .telemetry-card .content {
       margin-top: 16px;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       color: var(--text-muted);
       text-align: center;
       font-family: 'JetBrains Mono', monospace;
-    }
-
-    /* Micro Intermediary Inline Directional Arrows */
-    .arrow-container {
-      position: absolute;
-      right: -16px;
-      top: 50%;
-      transform: translateY(-50%);
-      z-index: 10;
-      pointer-events: none;
+      line-height: 1.5;
     }
 
     /* Call to action panel zone */
+    #idealize {
+      display: none;
+    }
+    
     .cta-action-zone {
       text-align: center;
       padding: 40px 20px 80px;
@@ -212,9 +209,9 @@
       color: #000;
     }
 
-    @media (max-width: 1024px) {
-      .arrow-container { display: none; }
+    @media (max-width: 768px) {
       .custom-navbar { flex-direction: column; gap: 16px; }
+      .telemetry-card { width: 100%; }
     }
   </style>
 </head>
@@ -251,34 +248,42 @@
 
     <main class="telemetry-row" id="img_row">
       
-      <div class="telemetry-card">
-        <img id="img01" alt="Observation Frame 1">
-        <div class="arrow-container" id="next01">
-          <div class="arrow right"></div>
+      <div class="telemetry-card-wrapper visible-card" id="card_wrapper01">
+        <div class="telemetry-card">
+          <img id="img01" alt="Observation Frame 1">
+          <div class="arrowBody" id="next01">
+            <div class="arrow right"></div>
+          </div>
         </div>
       </div>
 
-      <div class="telemetry-card">
-        <img id="img02" alt="Observation Frame 2">
-        <div class="content" id="text02"></div>
-        <div class="arrow-container" id="next02">
-          <div class="arrow right"></div>
+      <div class="telemetry-card-wrapper" id="card_wrapper02">
+        <div class="telemetry-card">
+          <img id="img02" alt="Observation Frame 2">
+          <div class="content" id="text02"></div>
+          <div class="arrowBody" id="next02">
+            <div class="arrow right"></div>
+          </div>
         </div>
       </div>
 
-      <div class="telemetry-card">
-        <img id="img03" alt="Observation Frame 3">
-        <div class="content" id="text03"></div>
-        <div class="arrow-container" id="next03">
-          <div class="arrow right"></div>
+      <div class="telemetry-card-wrapper" id="card_wrapper03">
+        <div class="telemetry-card">
+          <img id="img03" alt="Observation Frame 3">
+          <div class="content" id="text03"></div>
+          <div class="arrowBody" id="next03">
+            <div class="arrow right"></div>
+          </div>
         </div>
       </div>
 
-      <div class="telemetry-card">
-        <img id="img04" alt="Observation Frame 4">
-        <div class="content" id="text04"></div>
-        <div class="arrow-container" id="next04">
-          <div class="arrow right"></div>
+      <div class="telemetry-card-wrapper" id="card_wrapper04">
+        <div class="telemetry-card">
+          <img id="img04" alt="Observation Frame 4">
+          <div class="content" id="text04"></div>
+          <div class="arrowBody" id="next04">
+            <div class="arrow right"></div>
+          </div>
         </div>
       </div>
 

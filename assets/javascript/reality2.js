@@ -1,7 +1,8 @@
-document.getElementById("img01").src = "../images/real/helio2.gif";
-document.getElementById("img02").src = "../images/real/kepler.png";
-document.getElementById("img03").src = "../images/real/helio.png";  
-document.getElementById("img04").src = "../images/real/reality1.jpg";
+// Map assets cleanly into the system pointing to the correct images/reality folder
+document.getElementById("img01").src = "../images/reality/helio2.gif";
+document.getElementById("img02").src = "../images/reality/kepler.png";
+document.getElementById("img03").src = "../images/reality/helio.png";  
+document.getElementById("img04").src = "../images/reality/reality1.jpg";
 
 document.getElementById("text02").innerHTML = "Johannes Kepler, a German astronomer, formulated three laws that transformed our understanding of planetary motion around the Sun.";
 document.getElementById("text03").innerHTML = "Kepler describes the heliocentric model where the Sun is at the center, and planets, including Earth, orbit around it in the solar system.";  
@@ -18,29 +19,22 @@ for(let i = 1; i < 5; i++)
 
 function turnVisible(i)
 {
+    // Hide current arrow container
+    let currentArrow = document.getElementById("next0" + i.toString());
+    if (currentArrow) currentArrow.style.display = "none";
+
     i++;
     if(i < 5)
     {
-        let img = document.getElementById("img0" + i.toString());
-        let text = document.getElementById("text0" + i.toString());
-        let next = document.getElementById("next0" + i.toString());
-        
-        // Safeguard visibility against missing layout components
-        if (next) next.style.visibility = "visible";
-        
-        let prevNext = document.getElementById("next0" + (i-1).toString());
-        if (prevNext) prevNext.style.visibility = "hidden";
-        
-        if (img) img.style.visibility = "visible";
-        if (text) text.style.visibility = "visible"; // Guarded tracker bypasses missing text01 container
+        // Reveal the next card wrapper element cleanly
+        let nextWrapper = document.getElementById("card_wrapper0" + i.toString());
+        if (nextWrapper) nextWrapper.style.display = "block";
     }
     else
     {
+        // Reveal CTA layout panel zone
         let idealize = document.getElementById("idealize");
-        if (idealize) idealize.style.visibility = "visible";
-        
-        let prevNext = document.getElementById("next0" + (i-1).toString());
-        if (prevNext) prevNext.style.visibility = "hidden";
+        if (idealize) idealize.style.display = "block";
         
         animateStuff();
     }
@@ -83,5 +77,5 @@ function disapperText(){
 }
 
 function appearText(){
-    // Reserved zone for dynamic custom typography injection triggers
+    // Reserved zone for custom text injections
 }

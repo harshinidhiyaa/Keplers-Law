@@ -1,29 +1,35 @@
-/* Arrow style */
-.arrowBody{
-    width: 60px;
-    height: 80px;
-    background-color: black;
-    position: relative;
-    float:right;
-    margin-top: 35%;
-  }
-  .arrowBody:hover {
-   background-color: #e74c3c;
-   color: white;
-  }
-  .right{
-    top: 45%;
-  }
-  .arrow {
+/* Cleaned interactive card navigation buttons */
+.arrowBody {
+  width: 44px;
+  height: 44px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 20;
+}
+
+.arrowBody:hover {
+  background-color: #3b82f6;
+  border-color: #3b82f6;
+  transform: scale(1.05);
+}
+
+.arrow {
   position: absolute;
   border: solid white;
-  border-width: 0 10px 10px 0;
+  border-width: 0 3px 3px 0;
   display: inline-block;
-  padding: 10px;
-  right: 30%;
-  top: 30%;
-  }
-  .right {
+  padding: 4px;
+  left: 38%;
+  top: 36%;
+}
+
+.right {
   transform: rotate(-45deg);
   -webkit-transform: rotate(-45deg);
-  }
+}
