@@ -4,7 +4,7 @@ An interactive educational module designed to guide users through the physical o
 
 Leveraging HTML5 Canvas and D3.js, this simulator transforms abstract planetary telemetry into an intuitive, step-by-step visual learning path.
 
-Revamped in 2026 with LLM assist.
+Currently bein revamped with LLM assist.
 
 ---
 Experience the complete interactive classroom module here:
