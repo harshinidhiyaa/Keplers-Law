@@ -27,19 +27,32 @@
       --accent-emerald: #10b981;
     }
 
-    /* Fixed white viewport leaking by wrapping margin/padding resets on the document layout */
-    html, body {
-      margin: 0 !important;
-      padding: 0 !important;
+    /* FIXES THE THICK WHITE BORDER: Erases the 20px #e8eefa frame globally inherited from style.css */
+    html {
+      border: none !important;
+      border-width: 0px !important;
       background-color: #06070a !important;
-      min-height: 100vh;
+      height: 100% !important;
+      width: 100% !important;
     }
 
     body {
+      margin: 0 !important;
+      padding: 0 !important;
+      min-height: 100vh;
+      overflow-y: auto !important; /* Forces scrollability over the global lock hidden tag */
       background-image: radial-gradient(white, rgba(255,255,255,.08) 1px, transparent 30px);
       background-size: 300px 300px;
       color: var(--text-main);
       font-family: 'Inter', sans-serif;
+    }
+
+    /* Initial Visibility Reset to sync clean with your reality2.js reveal timeline engine loop */
+    #img02, #text02, #next02,
+    #img03, #text03, #next03,
+    #img04, #text04, #next04,
+    #idealize {
+      visibility: hidden;
     }
 
     /* Premium Modular Navigation Header Bar */
