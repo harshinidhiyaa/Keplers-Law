@@ -1,4 +1,4 @@
-// Map assets cleanly into the system pointing to the correct images/reality folder
+// Corrected asset folder string mapping definitions
 document.getElementById("img01").src = "../images/reality/helio2.gif";
 document.getElementById("img02").src = "../images/reality/kepler.png";
 document.getElementById("img03").src = "../images/reality/helio.png";  
@@ -8,7 +8,7 @@ document.getElementById("text02").innerHTML = "Johannes Kepler, a German astrono
 document.getElementById("text03").innerHTML = "Kepler describes the heliocentric model where the Sun is at the center, and planets, including Earth, orbit around it in the solar system.";  
 document.getElementById("text04").innerHTML = "The orbit of a planet around the Sun is an ellipse, with the Sun located at one of the two foci of the ellipse.";  
 
-// Sequence Click Listeners via D3
+// Sequence Click Listeners via D3 Tracker Matrix Loops
 for(let i = 1; i < 5; i++)
 {
     d3.select("#next0" + i.toString()).on("click", function()
@@ -19,16 +19,16 @@ for(let i = 1; i < 5; i++)
 
 function turnVisible(i)
 {
-    // Hide current arrow container
+    // Hide clicked navigation control element instantly
     let currentArrow = document.getElementById("next0" + i.toString());
     if (currentArrow) currentArrow.style.display = "none";
 
     i++;
     if(i < 5)
     {
-        // Reveal the next card wrapper element cleanly
+        // Add the utility show class to render the adjacent card package cleanly
         let nextWrapper = document.getElementById("card_wrapper0" + i.toString());
-        if (nextWrapper) nextWrapper.style.display = "block";
+        if (nextWrapper) nextWrapper.classList.add("visible-card");
     }
     else
     {
@@ -77,5 +77,5 @@ function disapperText(){
 }
 
 function appearText(){
-    // Reserved zone for custom text injections
+    // Reserved zone for custom dynamic text treatments
 }

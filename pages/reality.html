@@ -20,14 +20,14 @@
   <style>
     :root {
       --bg-space: #06070a;
-      --card-bg: rgba(22, 27, 40, 0.45);
-      --border: rgba(255, 255, 255, 0.06);
+      --card-bg: rgba(30, 41, 59, 0.7);
+      --border: rgba(255, 255, 255, 0.1);
       --text-main: #f3f4f6;
       --text-muted: #9ca3af;
       --accent-emerald: #10b981;
     }
 
-    /* FIXES THE THICK WHITE BORDER from global style.css */
+    /* 1. CANVAS BASE OVERRIDES: Eliminates the global 20px #e8eefa frame */
     html {
       border: none !important;
       border-width: 0px !important;
@@ -41,177 +41,131 @@
       padding: 0 !important;
       min-height: 100vh;
       overflow-y: auto !important; 
-      background-image: radial-gradient(white, rgba(255,255,255,.08) 1px, transparent 30px);
+      background-color: #06070a !important;
+      background-image: radial-gradient(rgba(255, 255, 255, 0.15) 1px, transparent 30px);
       background-size: 300px 300px;
-      color: var(--text-main);
+      color: var(--text-main) !important;
       font-family: 'Inter', sans-serif;
     }
 
-    /* PREMIUM TIMELINE DECK CONTROLLER: Structural wrappers start hidden to prevent pop-in */
+    /* 2. COMPONENT DECK WORKFLOW: Keeps steps 2, 3, and 4 hidden natively without messing up flex flow */
     .telemetry-card-wrapper {
       display: none;
     }
     .telemetry-card-wrapper.visible-card {
-      display: block;
+      display: block !important;
     }
 
-    /* Premium Modular Navigation Header Bar */
-    .custom-navbar {
-      background: rgba(10, 11, 16, 0.85);
-      border-bottom: 1px solid var(--border);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      padding: 12px 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    .nav-logo img {
-      height: 36px;
-      width: auto;
-      transition: opacity 0.2s;
-    }
-    .nav-logo img:hover { opacity: 0.8; }
-
-    .nav-links-wrapper {
-      display: flex;
-      gap: 16px;
-    }
-
-    .nav-node-item {
-      position: relative;
-      display: flex;
-      align-items: center;
-      text-decoration: none;
-      padding: 6px 12px;
-      border-radius: 8px;
-      border: 1px solid transparent;
-      transition: all 0.2s ease;
-    }
-
-    .nav-node-item img {
-      width: 28px;
-      height: 28px;
-      border-radius: 4px;
-      object-fit: cover;
-      margin-right: 8px;
-      border: 1px solid rgba(255,255,255,0.1);
-    }
-
-    .nav-node-item .content {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      font-weight: 500;
-    }
-
-    .nav-node-item.active-step {
-      background: rgba(255, 255, 255, 0.05);
-      border-color: var(--border);
-    }
-    .nav-node-item.active-step .content {
-      color: #fff;
-    }
-
-    /* Presentation Layout Grid config */
+    /* 3. HERO CONTENT DESIGN */
     .intro-prompt {
-      max-width: 850px;
-      margin: 40px auto 24px;
+      max-width: 900px;
+      margin: 50px auto 30px;
       text-align: center;
-      padding: 0 20px;
+      padding: 0 24px;
     }
 
     .intro-prompt span {
-      font-size: 1.15rem;
-      line-height: 1.7;
-      color: #e5e7eb;
+      font-size: 1.25rem;
+      line-height: 1.8;
+      color: #f3f4f6 !important; /* Force high contrast readable text */
       font-weight: 400;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.5);
     }
 
+    /* 4. TELEMETRY DECK PANELS GRID */
     .telemetry-row {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 24px;
+      display: flex !important;
+      flex-direction: row !important;
+      flex-wrap: wrap !important;
+      justify-content: center !important;
+      align-items: flex-start !important;
+      gap: 32px;
       max-width: 1400px;
-      margin: 0 auto;
-      padding: 24px;
+      margin: 40px auto;
+      padding: 20px;
     }
 
     .telemetry-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 20px;
-      width: 280px;
-      min-height: 340px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      position: relative;
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      background: var(--card-bg) !important;
+      border: 1px solid var(--border) !important;
+      border-radius: 20px !important;
+      padding: 24px;
+      width: 320px;
+      min-height: 420px;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      position: relative !important;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
     }
 
     .telemetry-card img {
-      width: 100%;
-      height: 200px;
-      object-fit: contain;
-      border-radius: 8px;
-      background: #000;
-      border: 1px solid rgba(255,255,255,0.04);
-      position: relative; /* Allows keyframe animation to translate path positions */
+      width: 100% !important;
+      height: 220px !important;
+      object-fit: contain !important;
+      border-radius: 12px !important;
+      background: #000000 !important;
+      border: 1px solid rgba(255, 255, 255, 0.08) !important;
+      position: relative;
     }
 
     .telemetry-card .content {
-      margin-top: 16px;
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      text-align: center;
-      font-family: 'JetBrains Mono', monospace;
-      line-height: 1.5;
+      margin-top: 20px;
+      font-size: 0.95rem !important;
+      color: #e2e8f0 !important; /* Fixed dark text bug turning it bright off-white */
+      text-align: center !important;
+      font-family: 'Inter', sans-serif !important;
+      line-height: 1.6;
     }
 
-    /* Call to action panel zone */
+    /* 5. CALL TO ACTION AREA */
     #idealize {
       display: none;
     }
-    
+
     .cta-action-zone {
       text-align: center;
-      padding: 40px 20px 80px;
+      padding: 60px 20px 100px;
     }
 
     .cta-action-zone h2 {
-      font-size: 1.2rem;
-      color: #fff;
-      margin-bottom: 20px;
+      font-size: 1.35rem;
+      color: #ffffff !important;
+      margin-bottom: 24px;
+      font-weight: 500;
     }
 
     .action-btn {
       display: inline-block;
       text-decoration: none;
-      background: var(--accent-emerald);
-      color: #000;
+      background: var(--accent-emerald) !important;
+      color: #06070a !important;
       font-weight: 600;
-      padding: 12px 36px;
-      border-radius: 8px;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      box-shadow: 0 4px 20px rgba(16, 185, 129, 0.25);
+      padding: 14px 40px;
+      border-radius: 10px;
+      font-size: 1.05rem;
+      transition: all 0.2s ease-in-out;
+      box-shadow: 0 4px 20px rgba(16, 185, 129, 0.3);
     }
 
     .action-btn:hover {
       transform: translateY(-2px);
-      box-shadow: 0 6px 24px rgba(16, 185, 129, 0.4);
-      color: #000;
+      box-shadow: 0 6px 24px rgba(16, 185, 129, 0.5);
+      color: #06070a !important;
     }
 
-    @media (max-width: 768px) {
-      .custom-navbar { flex-direction: column; gap: 16px; }
-      .telemetry-card { width: 100%; }
+    /* 6. NAVBAR LAYOUT SANITIZATION (Prevents item overlaps) */
+    .custom-navbar {
+      display: flex !important;
+      justify-content: space-between !important;
+      align-items: center !important;
+      flex-wrap: nowrap !important;
+    }
+    .nav-links-wrapper {
+      display: flex !important;
+      flex-direction: row !important;
     }
   </style>
 </head>
