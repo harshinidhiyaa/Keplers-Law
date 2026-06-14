@@ -1,8 +1,8 @@
 // Corrected asset paths to point to the new image folder structure
-document.getElementById("img01").src = "../images/reality/helio2.gif";
-document.getElementById("img02").src = "../images/reality/kepler.png";
-document.getElementById("img03").src = "../images/reality/helio.png";
-document.getElementById("img04").src = "../images/reality/reality1.jpg";
+document.getElementById("img01").src = "../images/real/helio2.gif";
+document.getElementById("img02").src = "../images/real/kepler.png";
+document.getElementById("img03").src = "../images/real/helio.png";
+document.getElementById("img04").src = "../images/real/reality1.jpg";
 
 document.getElementById("text02").innerHTML = "Johannes Kepler, a German astronomer, formulated three laws that transformed our understanding of planetary motion around the Sun.";
 document.getElementById("text03").innerHTML = "Kepler describes the heliocentric model where the Sun is at the center, and planets, including Earth, orbit around it in the solar system.";  
