@@ -8,19 +8,22 @@
 }
 
 /* 1. GLOBAL LAYOUT LOCK BREAKER & VIEWPORT RESETS */
-body, html {
+html {
+  /* Neutralizes the global 20px #e8eefa frame leaking into the layout view */
+  border: none !important;
+  border-width: 0px !important;
+  background-color: #06070a !important; 
+  height: 100% !important;
+  width: 100% !important;
+}
+
+body {
   min-height: 100vh !important;
   height: auto !important;
   overflow-y: auto !important;
   overflow-x: hidden !important;
-  
-  /* Wipes out the 8px browser default margin leaking the white background */
   margin: 0 !important;
   padding: 0 !important;
-  background-color: #06070a !important; 
-}
-
-body {
   background-color: var(--bg-space) !important;
   background-image: radial-gradient(white, rgba(255,255,255,.1) 1px, transparent 30px);
   background-size: 300px 300px;
