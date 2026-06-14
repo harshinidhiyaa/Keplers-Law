@@ -1,255 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Reality - Kepler Observation</title>
+    <meta charset="UTF-8">
+    <title>Reality</title>
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  
-  <script src="https://d3js.org/d3.v7.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
-  <link rel="stylesheet" href="../assets/css/style.css">
-  <link rel="stylesheet" href="../assets/css/navbar.css">
-  <link rel="stylesheet" href="../assets/css/realityfont.css">
-  <link rel="stylesheet" href="../assets/css/anreality.css">
-  <link rel="stylesheet" href="../assets/css/arrowstyle.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/navbar.css">
+    <link rel="stylesheet" href="../assets/css/realityfont.css">
+    <link rel="stylesheet" href="../assets/css/anreality.css">
+    <link rel="stylesheet" href="../assets/css/arrowstyle.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-  <style>
-    :root {
-      --bg-space: #06070a;
-      --card-bg: rgba(30, 41, 59, 0.7);
-      --border: rgba(255, 255, 255, 0.1);
-      --text-main: #f3f4f6;
-      --text-muted: #9ca3af;
-      --accent-emerald: #10b981;
-    }
-
-    /* 1. CANVAS BASE OVERRIDES: Eliminates the global 20px #e8eefa frame */
-    html {
-      border: none !important;
-      border-width: 0px !important;
-      background-color: #06070a !important;
-      height: 100% !important;
-      width: 100% !important;
-    }
-
-    body {
-      margin: 0 !important;
-      padding: 0 !important;
-      min-height: 100vh;
-      overflow-y: auto !important; 
-      background-color: #06070a !important;
-      background-image: radial-gradient(rgba(255, 255, 255, 0.15) 1px, transparent 30px);
-      background-size: 300px 300px;
-      color: var(--text-main) !important;
-      font-family: 'Inter', sans-serif;
-    }
-
-    /* 2. COMPONENT DECK WORKFLOW: Keeps steps 2, 3, and 4 hidden natively without messing up flex flow */
-    .telemetry-card-wrapper {
-      display: none;
-    }
-    .telemetry-card-wrapper.visible-card {
-      display: block !important;
-    }
-
-    /* 3. HERO CONTENT DESIGN */
-    .intro-prompt {
-      max-width: 900px;
-      margin: 50px auto 30px;
-      text-align: center;
-      padding: 0 24px;
-    }
-
-    .intro-prompt span {
-      font-size: 1.25rem;
-      line-height: 1.8;
-      color: #f3f4f6 !important; /* Force high contrast readable text */
-      font-weight: 400;
-      text-shadow: 0 2px 10px rgba(0,0,0,0.5);
-    }
-
-    /* 4. TELEMETRY DECK PANELS GRID */
-    .telemetry-row {
-      display: flex !important;
-      flex-direction: row !important;
-      flex-wrap: wrap !important;
-      justify-content: center !important;
-      align-items: flex-start !important;
-      gap: 32px;
-      max-width: 1400px;
-      margin: 40px auto;
-      padding: 20px;
-    }
-
-    .telemetry-card {
-      background: var(--card-bg) !important;
-      border: 1px solid var(--border) !important;
-      border-radius: 20px !important;
-      padding: 24px;
-      width: 320px;
-      min-height: 420px;
-      display: flex !important;
-      flex-direction: column !important;
-      align-items: center !important;
-      position: relative !important;
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-    }
-
-    .telemetry-card img {
-      width: 100% !important;
-      height: 220px !important;
-      object-fit: contain !important;
-      border-radius: 12px !important;
-      background: #000000 !important;
-      border: 1px solid rgba(255, 255, 255, 0.08) !important;
-      position: relative;
-    }
-
-    .telemetry-card .content {
-      margin-top: 20px;
-      font-size: 0.95rem !important;
-      color: #e2e8f0 !important; /* Fixed dark text bug turning it bright off-white */
-      text-align: center !important;
-      font-family: 'Inter', sans-serif !important;
-      line-height: 1.6;
-    }
-
-    /* 5. CALL TO ACTION AREA */
-    #idealize {
-      display: none;
-    }
-
-    .cta-action-zone {
-      text-align: center;
-      padding: 60px 20px 100px;
-    }
-
-    .cta-action-zone h2 {
-      font-size: 1.35rem;
-      color: #ffffff !important;
-      margin-bottom: 24px;
-      font-weight: 500;
-    }
-
-    .action-btn {
-      display: inline-block;
-      text-decoration: none;
-      background: var(--accent-emerald) !important;
-      color: #06070a !important;
-      font-weight: 600;
-      padding: 14px 40px;
-      border-radius: 10px;
-      font-size: 1.05rem;
-      transition: all 0.2s ease-in-out;
-      box-shadow: 0 4px 20px rgba(16, 185, 129, 0.3);
-    }
-
-    .action-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 24px rgba(16, 185, 129, 0.5);
-      color: #06070a !important;
-    }
-
-    /* 6. NAVBAR LAYOUT SANITIZATION (Prevents item overlaps) */
-    .custom-navbar {
-      display: flex !important;
-      justify-content: space-between !important;
-      align-items: center !important;
-      flex-wrap: nowrap !important;
-    }
-    .nav-links-wrapper {
-      display: flex !important;
-      flex-direction: row !important;
-    }
-  </style>
 </head>
 <body>
-
-  <nav class="custom-navbar">
-    <div class="nav-logo">
-      <a href="overview.html"><img id="logo" src="../images/logo.png" alt="System Logo"></a>
+<div class="container-fluid">
+    <div class="row navbar">
+        <div class="col-md-2 logo"><a href="overview.html"><img id="logo" src="../images/logo.png" alt="dummy.jpg"></a></div>
+        <div class="col-md-2"><a href="#"><img class="selected" src="../images/over1.jpeg" alt="dummy.jpg"><div class="content" id="text1"></div></a></div>
+        <div class="col-md-2"><a href="idealization.html"><img id="img2" src="../images/over2.png" alt="dummy.jpg"><div class="content" id="text2"></div></a></div>
+        <div class="col-md-2"><a href="geometric.html"><img id="img3" src="../images/over4.png" alt="dummy.jpg"><div class="content" id="text3"></div></a></div>
+        <div class="col-md-2"><a href="algebraic.html"><img id="img4" src="../images/over5.png" alt="dummy.jpg"><div class="content" id="text4"></div></a></div>
     </div>
-    <div class="nav-links-wrapper">
-      <a href="#" class="nav-node-item active-step">
-        <img src="../images/over1.jpeg" alt="Step 1">
-        <div class="content" id="text1">Reality</div>
-      </a>
-      <a href="idealization.html" class="nav-node-item">
-        <img id="img2" src="../images/over2.png" alt="Step 2">
-        <div class="content" id="text2">Idealization</div>
-      </a>
-      <a href="geometric.html" class="nav-node-item">
-        <img id="img3" src="../images/over4.png" alt="Step 3">
-        <div class="content" id="text3">Geometry</div>
-      </a>
-      <a href="algebraic.html" class="nav-node-item">
-        <img id="img4" src="../images/over5.png" alt="Step 4">
-        <div class="content" id="text4">Algebra</div>
-      </a>
+
+    <div class="row intro">
+        <div class="col-md-12">
+            <span>Do planets maintain the same speed throughout their entire revolution path or do they change? Are planets at perihelion, the closest point to the orbit’s focus, moving faster or slower than when it is at aphelion, the farthest point from the orbit’s focus?</span>
+        </div>
     </div>
-  </nav>
-
-  <div class="container-fluid">
-    <header class="intro-prompt">
-      <span>Do planets maintain the same speed throughout their entire revolution path or do they change? Are planets at perihelion, the closest point to the orbit’s focus, moving faster or slower than when it is at aphelion, the farthest point from the orbit’s focus?</span>
-    </header>
-
-    <main class="telemetry-row" id="img_row">
-      
-      <div class="telemetry-card-wrapper visible-card" id="card_wrapper01">
-        <div class="telemetry-card">
-          <img id="img01" alt="Observation Frame 1">
-          <div class="arrowBody" id="next01">
-            <div class="arrow right"></div>
-          </div>
+    <div class="row main" id="img_row">
+        <div class="col-md-3 vh-100">
+            <img id="img01">
+            <div id="next01" class="arrowBody">
+                <div class="arrow right"></div>
+            </div>
         </div>
-      </div>
-
-      <div class="telemetry-card-wrapper" id="card_wrapper02">
-        <div class="telemetry-card">
-          <img id="img02" alt="Observation Frame 2">
-          <div class="content" id="text02"></div>
-          <div class="arrowBody" id="next02">
-            <div class="arrow right"></div>
-          </div>
+        <div class="col-md-3 vh-100">
+            <img id="img02">
+            <div class="content" id="text02"></div>
+            <div id="next02" class="arrowBody">
+                <div class="arrow right"></div>
+            </div>
         </div>
-      </div>
-
-      <div class="telemetry-card-wrapper" id="card_wrapper03">
-        <div class="telemetry-card">
-          <img id="img03" alt="Observation Frame 3">
-          <div class="content" id="text03"></div>
-          <div class="arrowBody" id="next03">
-            <div class="arrow right"></div>
-          </div>
+        <div class="col-md-3 vh-100">
+            <img id="img03">
+            <div class="content" id="text03"></div>
+            <div id="next03" class="arrowBody">
+                <div class="arrow right"></div>
+            </div>
         </div>
-      </div>
-
-      <div class="telemetry-card-wrapper" id="card_wrapper04">
-        <div class="telemetry-card">
-          <img id="img04" alt="Observation Frame 4">
-          <div class="content" id="text04"></div>
-          <div class="arrowBody" id="next04">
-            <div class="arrow right"></div>
-          </div>
+        <div class="col-md-3 vh-100">
+            <img id="img04">
+            <div class="content" id="text04"></div>
+            <div id="next04" class="arrowBody">
+                <div class="arrow right"></div>
+            </div>
         </div>
-      </div>
-
-    </main>
-
-    <footer class="cta-action-zone" id="idealize">
-      <h2>To answer these questions let us mathematically model the motion of planets.</h2>
-      <a href="idealization.html" class="action-btn">Let us start!</a>
-    </footer>
-  </div>
-
-  <script src="../assets/javascript/navbar.js"></script>
-  <script src="../assets/javascript/reality2.js"></script>
+    </div>
+    <div class="row" id="idealize">
+        <div class="text">
+            <b><span>To answer these questions let us mathematically model the motion of planets.</span></b><br>
+            <a href="idealization.html" class="btn btn-success" type="button">Let us start!</a>
+        </div>
+    </div>
+</div>
 </body>
+<script src="../assets/javascript/navbar.js"></script>
+<script src="../assets/javascript/reality2.js"></script>
 </html>
