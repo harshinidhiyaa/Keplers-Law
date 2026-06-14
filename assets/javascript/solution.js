@@ -1,4 +1,4 @@
-// Keep step references in a scope accessible by both functions
+// Declared in outer scope so variables are safely shared between setEq and sliderReady
 let step1, step2, step3, step4, step5;
 
 setEq();
@@ -30,7 +30,7 @@ function setEq(){
 // Derivation steps
     let text1 = "Use the slider to derive the equation";
     let text2 = "Consider calculating the area of the triangle,<div class=\"der\" id=\"step\">$$dA = \\frac{1}{2}(r)(r\\,d\\theta)$$</div>";
-    let text3 = "Using angular momentum formula, $$L = I \\ omega$$";
+    let text3 = "Using angular momentum formula, $$L = I \\omega$$";
     let text4 = "<div class=\"der\" id=\"stepInt\">$$\\frac{dA}{dt} = \\frac{1}{2}r^2 \\omega$$</div>";
     let text5 = "<div class=\"der\" id=\"stepFinal\">$$\\frac{dA}{dt} = \\frac{1}{2}\\frac{L}{m} = \\text{constant}$$</div>We have shown that aerial velocity is constant. This implies that the planet covers equal areas in equal time as it moves through its orbit, meaning it must move faster when closer to the Sun.";
 
@@ -62,21 +62,21 @@ function setEq(){
     $('#col1').append(step4);
     $('#col1').append(step5);
 
-    // Initialize the slider actions
+// Setup slider monitoring
     sliderReady();
     
-    // Typeset current mathematics elements via MathJax
+// Render the math blocks via MathJax
     MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
 
-    // Bind event listeners AFTER the innerHTML elements have been added to the DOM tree
+// Safely attach click bindings after elements exist in the DOM
     MathJax.Hub.Queue(() => {
         d3.select("#step").on("click", () => {
-            let more = document.getElementById("moreSteps");
-            if(more) more.style.visibility = "visible";
+            let moreSteps = document.getElementById("moreSteps");
+            if(moreSteps) moreSteps.style.visibility = "visible";
         });
         d3.select("#stepInt").on("click", () => {
-            let more2 = document.getElementById("moreSteps2");
-            if(more2) more2.style.visibility = "visible";
+            let moreSteps2 = document.getElementById("moreSteps2");
+            if(moreSteps2) moreSteps2.style.visibility = "visible";
         });
     });
 }
@@ -135,7 +135,7 @@ function sliderReady()
             d3.select(".arrowBody")
                 .style("visibility", "visible")
                 .on("click", () => {
-                    window.location = "11_Summary.html"; // Kept direct as they share the pages/ folder
+                    window.location = "11_Summary.html";
                 });
         }
     });

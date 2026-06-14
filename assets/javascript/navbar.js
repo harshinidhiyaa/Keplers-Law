@@ -8,34 +8,29 @@ for(let i = 1; i <= desc.length; i++) {
 }
 
 window.addEventListener("load", ()=>{
-    // Corrected to match the actual file names inside the pages/ folder
+    // Maps exactly to the page names inside your pages/ folder
     let link = [
         "ideal.html",
         "geometric.html",
         "algebraic.html",
     ];
     
-    // Extracts just the filename from the path to dynamically calculate navigation tracking position
+    // Grabs just the dynamic file name from the URL string
     let loc = window.location.pathname.split("/").pop();
     let i = link.indexOf(loc);
-    if (i === -1) i = 0; // Default to the first link if not found
+    if (i === -1) i = 0; // Default to index 0 if it doesn't match completely
 
     let width = parseInt(d3.select(".navSvg").style("width").replace("px", ""), 10);
-    // Calculate the start and end positions of the line
-    let xOffsetStart = 150; // Starting offset
-    let xOffsetEnd = 300; // Ending offset to increase the line length
+    // Calculate the start and end positions of the SVG tracking line
+    let xOffsetStart = 150; 
+    let xOffsetEnd = 300; 
     let xStart = (i + 1) * (width / 6) + xOffsetStart;
     let xEnd = xStart + xOffsetEnd;
-    
-    //let xOffset = 100; // Combined offset
-    //let xStart = (i + 1) * (width / 6) + xOffset;
-    //let xEnd = xStart + 20;
 
     d3.select("#track").attr("d", "M " + xStart + " 15 H " + xEnd);
 });
 
-
-// Keeps navigation relative so it works perfectly across local folders and GitHub Pages hosting environments
+// Relative mapping arrays so files within the pages/ directory link directly to each other
 var link = [
     "overview.html",
     "reality.html",
@@ -52,12 +47,6 @@ d3.select("#nextBtn").on("mousedown", ()=>{
     }
 });
 
-// d3.select("#prevBtn").on("mousedown", ()=>{
-//     window.location = link[linkIndex-1];
-// });
 function fadeIn(){
-    // d3.select("body").append("div").attr("id", "fade")
-    //     .style("font-size","50px").style("width", "100vw").style("height", "100vh")
-    //     .style("position", "fixed").style("top", "0vh").style("left", "0vw")
-    //     .style("background", "black").style("z-index", "100").style("animation", "fade 2s forwards");
+    // Reserved for transitions
 }

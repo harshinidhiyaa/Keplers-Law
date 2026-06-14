@@ -6,7 +6,8 @@ document.getElementById("text02").innerHTML = "Consider a two body system, Mars 
 document.getElementById("text03").innerHTML = "A radius vector joining any planet to the Sun sweeps out equal areas in equal lengths of time.";
 document.getElementById("text04").innerHTML = "In this case, Mars takes 1 month for sweeping one section of the orbit when at aphelion and 1 month for sweeping another orbital arc section at perihelion.";
 
-for(let i = 1; i < 4; i++) // Fixed loop boundary to match the highest valid event trigger: next01, next02, next03
+// Correct loop index constraint to dynamically latch listeners up to next03
+for(let i = 1; i < 4; i++)
 {
     d3.select("#next0" + i.toString()).on("click", function()
     {
@@ -23,6 +24,7 @@ function turnVisible(i)
         let text = document.getElementById("text0" + i.toString());
         let next = document.getElementById("next0" + i.toString());
         if(next) next.style.visibility = "visible";
+        
         next = document.getElementById("next0" + (i-1).toString());
         if(next) next.style.visibility = "hidden";
         if(img) img.style.visibility = "visible";
@@ -47,7 +49,6 @@ function animateStuff(){
 
 function moveImage(){
     let img = document.getElementById("img01");
-
     if(img) {
         img.style.animationName = "enlargeImage";
         img.style.animationFillMode = "forwards";
@@ -76,12 +77,5 @@ function disapperText(){
 }
 
 function appearText(){
-
+    // Reserved for layout expansion
 }
-
-// Commented logic cleanup below: paths updated to matching standard directory structure if needed later
-// else if(value == 2)
-// {
-//     document.getElementById("img01").src = "../images/real/boiling.jpg"; 
-//     document.getElementById("img02").src = "../images/real/cooker2.jpg";
-//     ...
