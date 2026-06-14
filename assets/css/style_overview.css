@@ -3,7 +3,7 @@
   --card-bg: rgba(22, 27, 40, 0.5);
   --border: rgba(255, 255, 255, 0.08);
   --text-main: #f3f4f6;
-  --text-muted: #9ca3af;
+  --text-muted: #6b7280; /* Slightly darker grey for absolute minimal footprint */
   --accent-blue: #3b82f6;
 }
 
@@ -21,6 +21,7 @@ body {
   background-size: 300px 300px;
   color: var(--text-main);
   font-family: 'Inter', sans-serif;
+  position: relative;
 }
 
 /* Elegant Hero Header */
@@ -130,7 +131,7 @@ body {
 
 .node-content:hover .node-thumbnail-wrapper img {
   transform: scale(1.05);
-  opacity: 0.75; /* Smooth CSS implementation replacing the old JS loop */
+  opacity: 0.75;
 }
 
 .node-title {
@@ -141,7 +142,7 @@ body {
   margin: 0;
 }
 
-/* Central Ring Timeline Node Indicators */
+/* Central Ring Timeline Node Indicators - Border ring glows blue on card hover */
 .node-badge {
   position: absolute;
   left: 50%;
@@ -156,7 +157,7 @@ body {
   justify-content: center;
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.9rem;
-  color: var(--text-muted);
+  color: #9ca3af;
   font-weight: 500;
   transition: all 0.3s ease;
 }
@@ -169,6 +170,21 @@ body {
 
 .node-spacer {
   width: 45%;
+}
+
+/* Tiny Corner Version Stamp Styling */
+.version-stamp {
+  position: fixed;
+  bottom: 12px;
+  left: 16px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  pointer-events: none;
+  z-index: 1000;
+  opacity: 0.6;
 }
 
 /* Responsive Mobile Layout Adaptations */
