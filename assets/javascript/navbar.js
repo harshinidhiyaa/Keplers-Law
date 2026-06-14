@@ -8,13 +8,15 @@ for(let i = 1; i <= desc.length; i++) {
 }
 
 window.addEventListener("load", ()=>{
+    // Corrected to match the actual file names inside the pages/ folder
     let link = [
-        "/idealization.html",
-        "/geometric.html",
-        "/algebraic.html",
+        "ideal.html",
+        "geometric.html",
+        "algebraic.html",
     ];
     
-    let loc = window.location.pathname.replace("/Keplers-Law", "");
+    // Extracts just the filename from the path to dynamically calculate navigation tracking position
+    let loc = window.location.pathname.split("/").pop();
     let i = link.indexOf(loc);
     if (i === -1) i = 0; // Default to the first link if not found
 
@@ -33,18 +35,23 @@ window.addEventListener("load", ()=>{
 });
 
 
+// Keeps navigation relative so it works perfectly across local folders and GitHub Pages hosting environments
 var link = [
-    "/overview.html",
-    "/reality.html",
-    "/ideal.html",
-    "/geometric.html",
-    "/algebraic.html"
+    "overview.html",
+    "reality.html",
+    "ideal.html",
+    "geometric.html",
+    "algebraic.html"
 ];
-var loc = window.location.pathname.replace("/Keplers-Law", "");
+var loc = window.location.pathname.split("/").pop();
 var linkIndex = link.indexOf(loc);
+
 d3.select("#nextBtn").on("mousedown", ()=>{
-    window.location =  "/Keplers-Law" + link[linkIndex+1];
+    if (linkIndex !== -1 && linkIndex + 1 < link.length) {
+        window.location = link[linkIndex + 1];
+    }
 });
+
 // d3.select("#prevBtn").on("mousedown", ()=>{
 //     window.location = link[linkIndex-1];
 // });
