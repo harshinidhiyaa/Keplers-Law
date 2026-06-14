@@ -1,4 +1,5 @@
-#img1, #img2, #img3, #img4{
+/* FIXED SELECTOR LINE FOR NAVBAR.CSS */
+.selected, #img2, #img3, #img4 {
     top:-15px;
     bottom:0;
     border-radius: 100%;
