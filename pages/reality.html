@@ -27,13 +27,19 @@
       --accent-emerald: #10b981;
     }
 
+    /* Fixed white viewport leaking by wrapping margin/padding resets on the document layout */
+    html, body {
+      margin: 0 !important;
+      padding: 0 !important;
+      background-color: #06070a !important;
+      min-height: 100vh;
+    }
+
     body {
-      background-color: var(--bg-space);
       background-image: radial-gradient(white, rgba(255,255,255,.08) 1px, transparent 30px);
       background-size: 300px 300px;
       color: var(--text-main);
       font-family: 'Inter', sans-serif;
-      min-height: 100vh;
     }
 
     /* Premium Modular Navigation Header Bar */
@@ -210,7 +216,7 @@
         <img src="../images/over1.jpeg" alt="Step 1">
         <div class="content" id="text1">Reality</div>
       </a>
-      <a href="ideal.html" class="nav-node-item">
+      <a href="idealization.html" class="nav-node-item">
         <img id="img2" src="../images/over2.png" alt="Step 2">
         <div class="content" id="text2">Idealization</div>
       </a>
@@ -267,7 +273,7 @@
 
     <footer class="cta-action-zone" id="idealize">
       <h2>To answer these questions let us mathematically model the motion of planets.</h2>
-      <a href="ideal.html" class="action-btn">Let us start!</a>
+      <a href="idealization.html" class="action-btn">Let us start!</a>
     </footer>
   </div>
 
